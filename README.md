@@ -1,20 +1,37 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# CV Miguel - Run and deploy to GitHub Pages
 
-# Run and deploy your AI Studio app
+This project is a Vite + React app configured to be published on GitHub Pages at:
 
-This contains everything you need to run your app locally.
+`https://<github-user>.github.io/CV-Miguel/`
 
-View your app in AI Studio: https://ai.studio/apps/e213cf9e-5908-467a-9fe5-c16c26f55682
+## Run locally
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
+**Prerequisite:** Node.js 20+
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+   - `npm install`
+2. Start development server:
+   - `npm run dev`
+3. Build production bundle:
+   - `npm run build`
+4. Type check:
+   - `npm run lint`
+
+## Deploy to GitHub Pages (automatic)
+
+This repository includes a workflow at:
+
+- `.github/workflows/deploy-pages.yml`
+
+Deployment runs automatically on push to `main` and can also be launched manually from the Actions tab.
+
+### Required repository setting (one-time)
+
+In GitHub:
+
+1. Open **Settings → Pages**
+2. In **Build and deployment**, set **Source** to **GitHub Actions**
+
+After a successful workflow run, the site will be available at:
+
+`https://<github-user>.github.io/CV-Miguel/`
