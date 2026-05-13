@@ -381,6 +381,8 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                 </div>
               </motion.div>
             </div>
+          )}
+        </AnimatePresence>
     </>
   );
 }
