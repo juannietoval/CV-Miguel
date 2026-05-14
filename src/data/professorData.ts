@@ -3,7 +3,7 @@ export const PROFESSOR_DATA = {
   name: "Miguel Ángel Puentes Castro",
   title: "Doctor en Ciencias de la Educación",
   profileImage: "https://raw.githubusercontent.com/juannietoval/CV-Miguel-Angel-Puentes-CASTRO/main/content.jpg",
-  bio: "Investigador especializado en la unidad del signo epistemológico. Con amplia formación en educación, Comunicación Educativa y Formación Humana en futuros profesionales. Doctor en Ciencias de la Educación Magíster en Comunicación Educativa Licenciado en Comunicación e Informática Educativas Docente Transitorio Departamento de Humanidades e Idiomas Director del Grupo de Investigación en Estudios Políticos y Jurídicos Miembro del Grupo de Investigación en Comunicación Educativa",
+  bio: "Investigador especializado en la unidad del signo epistemológico. Con amplia formación en educación, Comunicación Educativa y Formación Humana en futuros profesionales.\n\nDoctor en Ciencias de la Educación\nMagíster en Comunicación Educativa\nLicenciado en Comunicación e Informática Educativas\n\nDocente Transitorio Departamento de Humanidades e Idiomas\nDirector del Grupo de Investigación en Estudios Políticos y Jurídicos\nMiembro del Grupo de Investigación en Comunicación Educativa",
   email: "miguel85@utp.edu.co",
   faculty: "Facultad de Bellas Artes y Humanidades",
   department: "Departamento de Humanidades",
