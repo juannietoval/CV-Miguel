@@ -1,7 +1,7 @@
 // --- DATA CONFIGURATION (El profesor puede editar esto fácilmente) ---
 export const PROFESSOR_DATA = {
   name: "Miguel Ángel Puentes Castro",
-  title: "Doctor en Ciencias de la Educación",
+  title: "Docente Universitario e Investigador",
   profileImage: "https://raw.githubusercontent.com/juannietoval/CV-Miguel-Angel-Puentes-CASTRO/main/content.jpg",
   bio: "Investigador especializado en la unidad del signo epistemológico. Con amplia formación en educación, Comunicación Educativa y Formación Humana en futuros profesionales.\n\nDoctor en Ciencias de la Educación\nMagíster en Comunicación Educativa\nLicenciado en Comunicación e Informática Educativas\n\nDocente Transitorio Departamento de Humanidades e Idiomas\nDirector del Grupo de Investigación en Estudios Políticos y Jurídicos\nMiembro del Grupo de Investigación en Comunicación Educativa",
   email: "miguel85@utp.edu.co",
