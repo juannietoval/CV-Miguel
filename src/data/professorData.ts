@@ -3,7 +3,7 @@ export const PROFESSOR_DATA = {
   name: "Miguel Ángel Puentes Castro",
   title: "Doctor en Ciencias de la Educación",
   profileImage: "https://raw.githubusercontent.com/juannietoval/CV-Miguel-Angel-Puentes-CASTRO/main/content.jpg",
-  bio: "Investigador especializado en la unidad del signo epistemológico. Con amplia formación en educación, Comunicación Educativa y Formación Humana en futuros profesionales.\n\nDoctor en Ciencias de la Educación\nMagíster en Comunicación Educativa\nLicenciado en Comunicación e Informática Educativas\n\nDocente Transitorio Departamento de Humanidades e Idiomas\nDirector del Grupo de Investigación en Estudios Políticos y Jurídicos\nMiembro del Grupo de Investigación en Comunicación Educativa",
+  bio: "Investigador especializado en la unidad del signo epistemológico. Con amplia formación en educación, Comunicación Educativa y Formación Humana en futuros profesionales. Doctor en Ciencias de la Educación Magíster en Comunicación Educativa Licenciado en Comunicación e Informática Educativas Docente Transitorio Departamento de Humanidades e Idiomas Director del Grupo de Investigación en Estudios Políticos y Jurídicos Miembro del Grupo de Investigación en Comunicación Educativa",
   email: "miguel85@utp.edu.co",
   faculty: "Facultad de Bellas Artes y Humanidades",
   department: "Departamento de Humanidades",
@@ -16,21 +16,21 @@ export const PROFESSOR_DATA = {
     repository: "https://repositorio.utp.edu.co/entities/person/7b6cfa24-1177-411c-a85b-55208120be84"
   },
   cv: [
-    { 
-      year: "2015 - 2020", 
-      role: "Doctorado en Ciencias de la Educación", 
+    {
+      year: "2015 - 2020",
+      role: "Doctorado en Ciencias de la Educación",
       institution: "Universidad Tecnológica de Pereira",
       description: "Tesis: HomoSinekus: Realidad - Virtualidad como unidad del signo epistemológico y sus implicaciones en lo educativo"
     },
-    { 
-      year: "2011 - 2014", 
-      role: "Maestría en Comunicación Educativa", 
+    {
+      year: "2011 - 2014",
+      role: "Maestría en Comunicación Educativa",
       institution: "Universidad Tecnológica de Pereira",
       description: "Proyecto: Pereira Imaginada Digital"
     },
-    { 
-      year: "2005 - 2010", 
-      role: "Licenciatura en Comunicación e Informática Educativa", 
+    {
+      year: "2005 - 2010",
+      role: "Licenciatura en Comunicación e Informática Educativa",
       institution: "Universidad Tecnológica de Pereira",
       description: "Proyecto: Metodología comunicativa mediatizada para la prevención de accidentalidad vial."
     }

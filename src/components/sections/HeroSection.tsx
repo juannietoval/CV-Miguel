@@ -86,7 +86,7 @@ export default function HeroSection() {
                   {/* Biografía (Siempre Visible) */}
                   <div className="border-t border-indigo-100 pt-8">
                     <h3 className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.3em] mb-4">Perfil Profesional</h3>
-                    <p className="text-base md:text-lg leading-relaxed text-gray-700 text-justify md:text-center whitespace-pre-line">
+                    <p className="text-base md:text-lg leading-relaxed text-gray-700 text-justify md:text-center">
                       {PROFESSOR_DATA.bio}
                     </p>
                   </div>
