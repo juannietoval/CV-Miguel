@@ -1,30 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-    <script>
-      // Prevent "Uncaught TypeError: Cannot set property fetch of #<Window> which has only a getter"
-      // This error often occurs when external instrumentation tries to overwrite the native fetch API.
-      (function() {
-        try {
-          const originalFetch = window.fetch;
-          Object.defineProperty(window, 'fetch', {
-            get: function() { return originalFetch; },
-            set: function(v) { console.warn('Blocked attempt to overwrite window.fetch'); },
-            configurable: true,
-            enumerable: true
-          });
-        } catch (e) {
-          // If we can't redefine it, it might already be protected or non-configurable.
-        }
-      })();
-    </script>
+    <title>Miguel Ángel Puentes Castro — Portafolio Académico</title>
+    <meta name="description" content="Portafolio académico del Dr. Miguel Ángel Puentes Castro, Doctor en Ciencias de la Educación y docente de la Universidad Tecnológica de Pereira." />
+    <meta name="author" content="Miguel Ángel Puentes Castro" />
+    <meta property="og:title" content="Miguel Ángel Puentes Castro — Portafolio Académico" />
+    <meta property="og:description" content="Doctor en Ciencias de la Educación. Investigador en Comunicación Educativa. Universidad Tecnológica de Pereira." />
+    <meta property="og:type" content="website" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

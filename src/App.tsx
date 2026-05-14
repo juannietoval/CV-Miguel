@@ -3,32 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
-import { 
-  BookOpen, 
-  FileText, 
-  Mail, 
-  ChevronDown, 
-  ChevronUp, 
-  ExternalLink, 
-  GraduationCap, 
-  Award, 
-  Gavel,
-  Calendar,
-  MapPin,
-  Linkedin,
-  Twitter,
-  Globe,
-  Search,
-  Users,
-  Book,
-  Briefcase,
-  Library,
-  Menu,
-  X
-} from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
-import { AcademiaIcon, GoogleScholarIcon, ResearchGateIcon } from './components/CustomIcons';
+import { useState } from 'react';
 
 import { PROFESSOR_DATA } from './data/professorData';
 import Footer from './components/sections/Footer';
@@ -50,6 +25,9 @@ import ArtisticWorksSection from './components/sections/ArtisticWorksSection';
 import ProjectsSection from './components/sections/ProjectsSection';
 import ProductsSection from './components/sections/ProductsSection';
 import HeroSection from './components/sections/HeroSection';
+
+// Suppress unused import warning — PROFESSOR_DATA is referenced by child components
+void PROFESSOR_DATA;
 
 
 export default function App() {
