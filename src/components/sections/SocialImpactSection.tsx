@@ -1,4 +1,4 @@
-import { Users, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+﻿import { Users, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
 interface SectionProps {
@@ -12,7 +12,7 @@ export default function SocialImpactSection({ expandedSection, toggleSection }: 
           <div className="glass rounded-3xl p-6 md:p-12">
             <div className="flex justify-between items-center mb-6 md:mb-8">
               <h2 className="serif text-2xl md:text-3xl font-bold flex items-center gap-3">
-                <Users className="text-indigo-600" /> Impacto Social y Apropiación del Conocimiento
+                <Users className="text-indigo-600" /> Impacto Social y ApropiaciÃ³n del Conocimiento
               </h2>
               <button 
                 onClick={() => toggleSection('social')}
@@ -25,14 +25,14 @@ export default function SocialImpactSection({ expandedSection, toggleSection }: 
             <div className="expandable-content">
               <div className="space-y-6">
                 {PROFESSOR_DATA.socialImpact.map((item, idx) => (
-                  <div key={idx} className="p-6 md:p-8 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group">
+                  <div key={idx} className="p-4 md:p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                       <div className="flex flex-wrap gap-2">
                         <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
-                          Apropiación Social del Conocimiento
+                          ApropiaciÃ³n Social del Conocimiento
                         </span>
                         <span className="text-[10px] uppercase tracking-widest font-bold text-pink-600 bg-pink-50 px-2 py-0.5 rounded">
-                          Interés Social
+                          InterÃ©s Social
                         </span>
                       </div>
                       <span className="text-xs font-bold text-gray-500">{item.date}</span>
@@ -53,7 +53,7 @@ export default function SocialImpactSection({ expandedSection, toggleSection }: 
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-bold transition-colors"
                         >
-                          Verificación <ExternalLink size={16} />
+                          VerificaciÃ³n <ExternalLink size={16} />
                         </a>
                       </div>
                     </div>
@@ -65,3 +65,4 @@ export default function SocialImpactSection({ expandedSection, toggleSection }: 
         </section>
   );
 }
+

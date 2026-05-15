@@ -1,4 +1,4 @@
-import { GraduationCap, ChevronDown, ChevronUp, Award } from 'lucide-react';
+﻿import { GraduationCap, ChevronDown, ChevronUp, Award } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
 interface SectionProps {
@@ -12,7 +12,7 @@ export default function CvSection({ expandedSection, toggleSection }: SectionPro
               <div className="glass rounded-3xl p-6 md:p-12">
                 <div className="flex justify-between items-center mb-6 md:mb-8">
                   <h2 className="serif text-2xl md:text-3xl font-bold flex items-center gap-3">
-                    <GraduationCap className="text-indigo-600" /> Formación Académica
+                    <GraduationCap className="text-indigo-600" /> FormaciÃ³n AcadÃ©mica
                   </h2>
                   <button 
                     onClick={() => toggleSection('cv')}
@@ -23,9 +23,9 @@ export default function CvSection({ expandedSection, toggleSection }: SectionPro
                 </div>
     
                 <div className="expandable-content">
-                  <div className="space-y-4 md:space-y-6">
+                  <div className="space-y-3 md:space-y-4">
                     {PROFESSOR_DATA.cv.map((item, idx) => (
-                      <div key={idx} className="flex flex-col md:flex-row md:items-start gap-2 md:gap-4 p-4 md:p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-colors group">
+                      <div key={idx} className="flex flex-col md:flex-row md:items-start gap-1 md:gap-3 p-3 md:p-5 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-colors group">
                         <span className="text-xs md:text-sm font-bold text-indigo-600 md:w-32 pt-1">{item.year}</span>
                         <div className="flex-1">
                           <h3 className="font-semibold text-base md:text-lg group-hover:text-indigo-800 transition-colors">{item.role}</h3>
@@ -45,3 +45,4 @@ export default function CvSection({ expandedSection, toggleSection }: SectionPro
             </section>
   );
 }
+

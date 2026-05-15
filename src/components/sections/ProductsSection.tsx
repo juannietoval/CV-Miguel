@@ -1,4 +1,4 @@
-import { BookOpen, ExternalLink } from 'lucide-react';
+﻿import { BookOpen, ExternalLink } from 'lucide-react';
 import { motion } from 'motion/react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
@@ -30,7 +30,7 @@ export default function ProductsSection() {
                       href={product.link} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="p-6 md:p-8 flex-1 flex flex-col justify-start group/content"
+                      className="p-4 md:p-6 flex-1 flex flex-col justify-start group/content"
                     >
                       <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-indigo-500 mb-3 block">
                         {product.type}
@@ -46,7 +46,7 @@ export default function ProductsSection() {
                       href={product.link} 
                       className="w-full py-4 md:py-5 bg-indigo-600/5 hover:bg-indigo-600/10 border-t border-white/40 text-indigo-700 font-bold flex items-center justify-center gap-3 transition-all duration-300 group/btn"
                     >
-                      Ver más <ExternalLink size={18} className="group-hover/btn:translate-x-1 transition-transform" />
+                      Ver mÃ¡s <ExternalLink size={18} className="group-hover/btn:translate-x-1 transition-transform" />
                     </a>
                   </div>
                 </motion.div>
@@ -56,3 +56,4 @@ export default function ProductsSection() {
         </section>
   );
 }
+

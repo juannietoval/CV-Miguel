@@ -1,4 +1,4 @@
-import { Users, ChevronDown, ChevronUp } from 'lucide-react';
+﻿import { Users, ChevronDown, ChevronUp } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
 interface SectionProps {
@@ -12,7 +12,7 @@ export default function TutoringSection({ expandedSection, toggleSection }: Sect
               <div className="glass rounded-3xl p-6 md:p-12">
                 <div className="flex justify-between items-center mb-6 md:mb-8">
                   <h2 className="serif text-2xl md:text-3xl font-bold flex items-center gap-3">
-                    <Users className="text-indigo-600" /> Trabajos Dirigidos / Tutorías
+                    <Users className="text-indigo-600" /> Trabajos Dirigidos / TutorÃ­as
                   </h2>
                   <button 
                     onClick={() => toggleSection('tutoring')}
@@ -23,9 +23,9 @@ export default function TutoringSection({ expandedSection, toggleSection }: Sect
                 </div>
     
                 <div className="expandable-content">
-                  <div className="space-y-4 md:space-y-6">
+                  <div className="space-y-3 md:space-y-4">
                     {PROFESSOR_DATA.tutoring.map((item, idx) => (
-                      <div key={idx} className="p-4 md:p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-colors group">
+                      <div key={idx} className="p-3 md:p-5 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-colors group">
                         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-3">
                           <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
                             {item.type}
@@ -36,7 +36,7 @@ export default function TutoringSection({ expandedSection, toggleSection }: Sect
                           {item.title}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs md:text-sm">
-                          <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Institución:</span> {item.institution}</p>
+                          <p className="text-gray-600"><span className="font-bold text-indigo-900/70">InstituciÃ³n:</span> {item.institution}</p>
                           <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Estado:</span> {item.status}</p>
                           {item.student && (
                             <p className="text-gray-600 md:col-span-2"><span className="font-bold text-indigo-900/70">Persona(s) orientada(s):</span> {item.student}</p>
@@ -51,3 +51,4 @@ export default function TutoringSection({ expandedSection, toggleSection }: Sect
             </section>
   );
 }
+

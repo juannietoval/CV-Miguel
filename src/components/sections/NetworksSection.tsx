@@ -1,4 +1,4 @@
-import { Globe, MapPin, ChevronDown, ChevronUp } from 'lucide-react';
+﻿import { Globe, MapPin, ChevronDown, ChevronUp } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
 interface SectionProps {
@@ -47,3 +47,4 @@ export default function NetworksSection({ expandedSection, toggleSection }: Sect
             </section>
   );
 }
+

@@ -1,4 +1,4 @@
-import { Briefcase, ChevronDown, ChevronUp } from 'lucide-react';
+﻿import { Briefcase, ChevronDown, ChevronUp } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
 interface SectionProps {
@@ -25,19 +25,19 @@ export default function ProjectsSection({ expandedSection, toggleSection }: Sect
             <div className="expandable-content">
               <div className="space-y-8">
                 {PROFESSOR_DATA.projects.map((project, idx) => (
-                  <div key={idx} className="p-6 md:p-8 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group">
+                  <div key={idx} className="p-4 md:p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
                       <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
                         {project.type}
                       </span>
                       <span className="text-xs font-bold text-gray-500">
-                        {project.start} — {project.end}
+                        {project.start} â€” {project.end}
                       </span>
                     </div>
                     <h3 className="font-semibold text-xl md:text-2xl group-hover:text-indigo-800 transition-colors mb-4 leading-tight">
                       {project.title}
                     </h3>
-                    <div className="mt-4 p-4 md:p-6 rounded-xl bg-white/30 border border-white/40">
+                    <div className="mt-4 p-3 md:p-5 rounded-xl bg-white/30 border border-white/40">
                       <h4 className="text-xs font-bold text-indigo-900/70 uppercase tracking-widest mb-3">Resumen del Proyecto</h4>
                       <p className="text-sm md:text-base text-gray-700 leading-relaxed text-justify">
                         {project.summary}
@@ -51,3 +51,4 @@ export default function ProjectsSection({ expandedSection, toggleSection }: Sect
         </section>
   );
 }
+
