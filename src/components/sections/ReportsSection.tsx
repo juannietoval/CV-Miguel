@@ -12,7 +12,7 @@ export default function ReportsSection({ expandedSection, toggleSection }: Secti
           <div className="glass rounded-3xl p-6 md:p-12">
             <div className="flex justify-between items-center mb-6 md:mb-8">
               <h2 className="serif text-2xl md:text-3xl font-bold flex items-center gap-3">
-                <FileText className="text-indigo-600" /> Informes de InvestigaciÃ³n
+                <FileText className="text-indigo-600" /> Informes de Investigación
               </h2>
               <button 
                 onClick={() => toggleSection('reports')}
@@ -28,7 +28,7 @@ export default function ReportsSection({ expandedSection, toggleSection }: Secti
                   <div key={idx} className="p-4 md:p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                       <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
-                        ProducciÃ³n TÃ©cnica - Informe
+                        Producción Técnica - Informe
                       </span>
                       <span className="text-xs font-bold text-gray-500">{report.year}</span>
                     </div>
@@ -38,10 +38,10 @@ export default function ReportsSection({ expandedSection, toggleSection }: Secti
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
                       <div className="space-y-2">
                         <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Autores:</span> {report.authors}</p>
-                        <p className="text-gray-600"><span className="font-bold text-indigo-900/70">PaÃ­s:</span> {report.location}</p>
+                        <p className="text-gray-600"><span className="font-bold text-indigo-900/70">País:</span> {report.location}</p>
                       </div>
                       <div className="space-y-2">
-                        <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Ãreas:</span> {report.areas}</p>
+                        <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Áreas:</span> {report.areas}</p>
                       </div>
                     </div>
                   </div>

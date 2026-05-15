@@ -12,7 +12,7 @@ export default function ComplementarySection({ expandedSection, toggleSection }:
               <div className="glass rounded-3xl p-6 md:p-12">
                 <div className="flex justify-between items-center mb-6 md:mb-8">
                   <h2 className="serif text-2xl md:text-3xl font-bold flex items-center gap-3">
-                    <FileText className="text-indigo-600" /> FormaciÃ³n Complementaria
+                    <FileText className="text-indigo-600" /> Formación Complementaria
                   </h2>
                   <button 
                     onClick={() => toggleSection('complementary')}

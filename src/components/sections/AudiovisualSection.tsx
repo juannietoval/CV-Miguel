@@ -28,7 +28,7 @@ export default function AudiovisualSection({ expandedSection, toggleSection }: S
                   <div key={idx} className="p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group flex flex-col">
                     <div className="flex justify-between items-start mb-4">
                       <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
-                        CÃ¡psula de Video
+                        Cápsula de Video
                       </span>
                       <span className="text-xs font-bold text-gray-500">{item.date}</span>
                     </div>
@@ -42,7 +42,7 @@ export default function AudiovisualSection({ expandedSection, toggleSection }: S
                       </div>
                       <div className="flex items-center gap-2 text-xs text-gray-600">
                         <Globe size={14} className="text-blue-400" />
-                        <span>CirculaciÃ³n {item.circulation}</span>
+                        <span>Circulación {item.circulation}</span>
                       </div>
                       <p className="text-[10px] text-gray-500 italic line-clamp-2">
                         <span className="font-bold not-italic">Proyecto:</span> {item.project}

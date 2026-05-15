@@ -12,7 +12,7 @@ export default function ArticlesSection({ expandedSection, toggleSection }: Sect
           <div className="glass rounded-3xl p-6 md:p-12">
             <div className="flex justify-between items-center mb-6 md:mb-8">
               <h2 className="serif text-2xl md:text-3xl font-bold flex items-center gap-3">
-                <FileText className="text-indigo-600" /> ArtÃ­culos
+                <FileText className="text-indigo-600" /> Artículos
               </h2>
               <button 
                 onClick={() => toggleSection('articles')}
@@ -28,7 +28,7 @@ export default function ArticlesSection({ expandedSection, toggleSection }: Sect
                   <div key={idx} className="p-4 md:p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                       <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
-                        ArtÃ­culo Publicado
+                        Artículo Publicado
                       </span>
                       <span className="text-xs font-bold text-gray-500">{article.year}</span>
                     </div>
@@ -44,7 +44,7 @@ export default function ArticlesSection({ expandedSection, toggleSection }: Sect
                       <div className="space-y-2">
                         <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Editorial:</span> {article.publisher}</p>
                         <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Detalles:</span> {article.details}</p>
-                        <p className="text-gray-600"><span className="font-bold text-indigo-900/70">PaÃ­s:</span> {article.location}</p>
+                        <p className="text-gray-600"><span className="font-bold text-indigo-900/70">País:</span> {article.location}</p>
                       </div>
                     </div>
                   </div>

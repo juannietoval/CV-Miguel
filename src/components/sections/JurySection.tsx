@@ -12,7 +12,7 @@ export default function JurySection({ expandedSection, toggleSection }: SectionP
               <div className="glass rounded-3xl p-6 md:p-12">
                 <div className="flex justify-between items-center mb-6 md:mb-8">
                   <h2 className="serif text-2xl md:text-3xl font-bold flex items-center gap-3">
-                    <Gavel className="text-indigo-600" /> Jurado en ComitÃ©s de EvaluaciÃ³n
+                    <Gavel className="text-indigo-600" /> Jurado en Comités de Evaluación
                   </h2>
                   <button 
                     onClick={() => toggleSection('jury')}
@@ -35,7 +35,7 @@ export default function JurySection({ expandedSection, toggleSection }: SectionP
                           {item.title}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs md:text-sm">
-                          <p className="text-gray-600"><span className="font-bold text-indigo-900/70">InstituciÃ³n:</span> {item.institution}</p>
+                          <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Institución:</span> {item.institution}</p>
                           <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Programa:</span> {item.program}</p>
                           {item.student && (
                             <p className="text-gray-600 md:col-span-2"><span className="font-bold text-indigo-900/70">Persona(s) orientada(s):</span> {item.student}</p>

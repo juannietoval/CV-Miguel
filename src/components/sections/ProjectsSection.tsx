@@ -31,7 +31,7 @@ export default function ProjectsSection({ expandedSection, toggleSection }: Sect
                         {project.type}
                       </span>
                       <span className="text-xs font-bold text-gray-500">
-                        {project.start} â€” {project.end}
+                        {project.start} — {project.end}
                       </span>
                     </div>
                     <h3 className="font-semibold text-xl md:text-2xl group-hover:text-indigo-800 transition-colors mb-4 leading-tight">

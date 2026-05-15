@@ -28,7 +28,7 @@ export default function ArtisticWorksSection({ expandedSection, toggleSection }:
                   <div key={idx} className="p-4 md:p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
                       <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
-                        Obra / Producto ArtÃ­stico
+                        Obra / Producto Artístico
                       </span>
                       <span className="text-xs font-bold text-gray-500">{work.date}</span>
                     </div>
@@ -40,7 +40,7 @@ export default function ArtisticWorksSection({ expandedSection, toggleSection }:
                     </p>
                     
                     <div className="mt-6 border-t border-white/30 pt-6">
-                      <h4 className="text-xs font-bold text-indigo-900/70 uppercase tracking-widest mb-4">Instancias de ValoraciÃ³n</h4>
+                      <h4 className="text-xs font-bold text-indigo-900/70 uppercase tracking-widest mb-4">Instancias de Valoración</h4>
                       <div className="grid grid-cols-1 gap-4">
                         {work.validations.map((val, i) => (
                           <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-white/30 border border-white/40">

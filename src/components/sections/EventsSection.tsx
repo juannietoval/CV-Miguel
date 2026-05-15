@@ -12,7 +12,7 @@ export default function EventsSection({ expandedSection, toggleSection }: Sectio
               <div className="glass rounded-3xl p-6 md:p-12">
                 <div className="flex justify-between items-center mb-6 md:mb-8">
                   <h2 className="serif text-2xl md:text-3xl font-bold flex items-center gap-3">
-                    <Calendar className="text-indigo-600" /> Eventos CientÃ­ficos
+                    <Calendar className="text-indigo-600" /> Eventos Científicos
                   </h2>
                   <button 
                     onClick={() => toggleSection('events')}
@@ -41,7 +41,7 @@ export default function EventsSection({ expandedSection, toggleSection }: Sectio
                           {idx + 1}. {event.name}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs md:text-sm">
-                          <p className="text-gray-600"><span className="font-bold text-indigo-900/70">UbicaciÃ³n:</span> {event.location}</p>
+                          <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Ubicación:</span> {event.location}</p>
                           <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Rol:</span> {event.role}</p>
                           {event.participants && event.participants.length > 0 && (
                             <p className="text-gray-600 md:col-span-2"><span className="font-bold text-indigo-900/70">Participantes:</span> {event.participants.join(", ")}</p>

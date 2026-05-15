@@ -16,7 +16,7 @@ export default function HeroSection() {
                   />
                 </div>
     
-                {/* InformaciÃ³n Principal */}
+                {/* Información Principal */}
                 <div className="max-w-3xl mx-auto">
                   <h1 className="serif text-3xl md:text-5xl font-bold mb-3 text-indigo-950 leading-tight">
                     {PROFESSOR_DATA.name}
@@ -83,7 +83,7 @@ export default function HeroSection() {
                     </a>
                   </div>
     
-                  {/* BiografÃ­a (Siempre Visible) */}
+                  {/* Biografía (Siempre Visible) */}
                   <div className="border-t border-indigo-100 pt-8">
                     <h3 className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.3em] mb-4">Perfil Profesional</h3>
                     <p className="text-base md:text-lg leading-relaxed text-gray-700 text-center whitespace-pre-line max-w-2xl mx-auto">

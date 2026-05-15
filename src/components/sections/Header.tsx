@@ -31,7 +31,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Cerrar menÃº mÃ³vil al redimensionar
+  // Cerrar menú móvil al redimensionar
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -42,7 +42,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Prevenir scroll cuando el menÃº mÃ³vil estÃ¡ abierto
+  // Prevenir scroll cuando el menú móvil está abierto
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -51,7 +51,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
     }
   }, [isMobileMenuOpen]);
 
-  // LÃ³gica de bÃºsqueda
+  // Lógica de búsqueda
   useEffect(() => {
     if (searchQuery.trim() === '') {
       setSearchResults([]);
@@ -61,14 +61,14 @@ export default function Header({ setExpandedSection }: HeaderProps) {
     const query = searchQuery.toLowerCase();
     const results: any[] = [];
 
-    // FunciÃ³n auxiliar para buscar en objetos
+    // Función auxiliar para buscar en objetos
     const searchInData = (data: any[], sectionId: string, sectionName: string) => {
       data.forEach((item: any) => {
         const textToSearch = JSON.stringify(item).toLowerCase();
         if (textToSearch.includes(query)) {
           results.push({
             id: item.id || Math.random(),
-            title: item.title || item.role || item.name || item.institution || "Sin tÃ­tulo",
+            title: item.title || item.role || item.name || item.institution || "Sin título",
             subtitle: item.institution || item.type || item.year || "",
             sectionId,
             sectionName,
@@ -79,16 +79,16 @@ export default function Header({ setExpandedSection }: HeaderProps) {
     };
 
     // Indexar datos
-    searchInData(PROFESSOR_DATA.cv, 'cv', 'FormaciÃ³n');
+    searchInData(PROFESSOR_DATA.cv, 'cv', 'Formación');
     searchInData(PROFESSOR_DATA.experience, 'experience', 'Experiencia');
-    searchInData(PROFESSOR_DATA.tutoring, 'tutoring', 'TutorÃ­as');
+    searchInData(PROFESSOR_DATA.tutoring, 'tutoring', 'Tutorías');
     searchInData(PROFESSOR_DATA.jury, 'jury', 'Jurados');
     searchInData(PROFESSOR_DATA.events, 'events', 'Eventos');
     searchInData(PROFESSOR_DATA.networks, 'networks', 'Redes');
     searchInData(PROFESSOR_DATA.socialImpact, 'social', 'Impacto Social');
     searchInData(PROFESSOR_DATA.digitalContent, 'audiovisual', 'Audiovisual');
-    searchInData(PROFESSOR_DATA.articles, 'articles', 'ArtÃ­culos');
-    searchInData(PROFESSOR_DATA.nonScientificArticles, 'divulgation', 'DivulgaciÃ³n');
+    searchInData(PROFESSOR_DATA.articles, 'articles', 'Artículos');
+    searchInData(PROFESSOR_DATA.nonScientificArticles, 'divulgation', 'Divulgación');
     searchInData(PROFESSOR_DATA.divulgationBooks, 'divulgation-books', 'Libros Div.');
     searchInData(PROFESSOR_DATA.researchReports, 'reports', 'Informes');
     searchInData(PROFESSOR_DATA.artisticWorks, 'artistic', 'Obras');
@@ -99,7 +99,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
     setSearchResults(results.slice(0, 10)); // Limitar a 10 resultados para rendimiento
   }, [searchQuery]);
 
-  // Atajo de teclado para bÃºsqueda (Ctrl+K y ESC)
+  // Atajo de teclado para búsqueda (Ctrl+K y ESC)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
@@ -116,7 +116,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
 
   return (
     <>
-        {/* NavegaciÃ³n */}
+        {/* Navegación */}
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen ? 'py-2 md:py-3' : 'py-4 md:py-6'}`}>
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <div className={`glass transition-all duration-300 ${isMobileMenuOpen ? 'rounded-3xl' : 'rounded-2xl md:rounded-full'} px-4 md:px-6 py-2 md:py-3 flex flex-col bg-gradient-to-r from-indigo-100/70 via-white/80 to-blue-100/70 border-white/40 shadow-lg shadow-indigo-200/20`}>
@@ -131,7 +131,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                   </div>
                 </div>
   
-                {/* MenÃº Desktop (Oculto en mÃ³vil/tablet pequeÃ±a) */}
+                {/* Menú Desktop (Oculto en móvil/tablet pequeña) */}
                 <div className="hidden lg:flex items-center gap-4 xl:gap-8 text-[11px] xl:text-xs font-bold uppercase tracking-wider">
                   {/* Grupo Perfil */}
                   <div className="relative group">
@@ -140,8 +140,8 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                     </button>
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden group-hover:block z-50">
                       <div className="glass bg-white/95 rounded-xl shadow-xl border border-white/50 p-2 min-w-[140px] flex flex-col gap-1">
-                        <a href="#bio" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">BiografÃ­a</a>
-                        <a href="#cv" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">FormaciÃ³n</a>
+                        <a href="#bio" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Biografía</a>
+                        <a href="#cv" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Formación</a>
                         <a href="#experience" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Experiencia</a>
                       </div>
                     </div>
@@ -154,7 +154,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                     </button>
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden group-hover:block z-50">
                       <div className="glass bg-white/95 rounded-xl shadow-xl border border-white/50 p-2 min-w-[140px] flex flex-col gap-1">
-                        <a href="#tutoring" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">TutorÃ­as</a>
+                        <a href="#tutoring" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Tutorías</a>
                         <a href="#jury" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Jurados</a>
                         <a href="#events" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Eventos</a>
                         <a href="#networks" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Redes</a>
@@ -162,15 +162,15 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                     </div>
                   </div>
   
-                  {/* Grupo ProducciÃ³n */}
+                  {/* Grupo Producción */}
                   <div className="relative group">
                     <button className="flex items-center gap-1 hover:text-indigo-600 transition-colors py-1">
-                      ProducciÃ³n <ChevronDown size={12} />
+                      Producción <ChevronDown size={12} />
                     </button>
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden group-hover:block z-50">
                       <div className="glass bg-white/95 rounded-xl shadow-xl border border-white/50 p-2 min-w-[160px] flex flex-col gap-1">
-                        <a href="#articles" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">ArtÃ­culos</a>
-                        <a href="#divulgation" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">DivulgaciÃ³n</a>
+                        <a href="#articles" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Artículos</a>
+                        <a href="#divulgation" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Divulgación</a>
                         <a href="#divulgation-books" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Libros Div.</a>
                         <a href="#reports" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Informes</a>
                         <a href="#artistic" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Obras</a>
@@ -179,10 +179,10 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                     </div>
                   </div>
   
-                  {/* Grupo InvestigaciÃ³n */}
+                  {/* Grupo Investigación */}
                   <div className="relative group">
                     <button className="flex items-center gap-1 hover:text-indigo-600 transition-colors py-1">
-                      InvestigaciÃ³n <ChevronDown size={12} />
+                      Investigación <ChevronDown size={12} />
                     </button>
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden group-hover:block z-50">
                       <div className="glass bg-white/95 rounded-xl shadow-xl border border-white/50 p-2 min-w-[140px] flex flex-col gap-1">
@@ -196,7 +196,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                   <a href="#complementary" className="hover:text-indigo-600 transition-colors py-1">Cursos</a>
                 </div>
   
-                {/* Acciones (BÃºsqueda y MenÃº MÃ³vil) */}
+                {/* Acciones (Búsqueda y Menú Móvil) */}
                 <div className="flex items-center gap-2">
                   <button 
                     onClick={() => setIsSearchOpen(true)}
@@ -216,7 +216,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                 </div>
               </div>
   
-              {/* MenÃº MÃ³vil (Expandible) */}
+              {/* Menú Móvil (Expandible) */}
               <AnimatePresence>
                 {isMobileMenuOpen && (
                   <motion.div 
@@ -230,10 +230,10 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                         <h3 className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em] px-3 mb-2 opacity-70">Perfil</h3>
                         <div className="grid grid-cols-1 gap-1">
                           <a href="#bio" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
-                            <Users size={18} className="text-indigo-400" /> BiografÃ­a
+                            <Users size={18} className="text-indigo-400" /> Biografía
                           </a>
                           <a href="#cv" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
-                            <GraduationCap size={18} className="text-indigo-400" /> FormaciÃ³n
+                            <GraduationCap size={18} className="text-indigo-400" /> Formación
                           </a>
                           <a href="#experience" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Briefcase size={18} className="text-indigo-400" /> Experiencia
@@ -245,7 +245,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                         <h3 className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em] px-3 mb-2 opacity-70">Academia</h3>
                         <div className="grid grid-cols-1 gap-1">
                           <a href="#tutoring" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
-                            <Users size={18} className="text-indigo-400" /> TutorÃ­as
+                            <Users size={18} className="text-indigo-400" /> Tutorías
                           </a>
                           <a href="#jury" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Gavel size={18} className="text-indigo-400" /> Jurados
@@ -260,13 +260,13 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                       </div>
   
                       <div className="space-y-1">
-                        <h3 className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em] px-3 mb-2 opacity-70">ProducciÃ³n</h3>
+                        <h3 className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em] px-3 mb-2 opacity-70">Producción</h3>
                         <div className="grid grid-cols-1 gap-1">
                           <a href="#articles" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
-                            <FileText size={18} className="text-indigo-400" /> ArtÃ­culos
+                            <FileText size={18} className="text-indigo-400" /> Artículos
                           </a>
                           <a href="#divulgation" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
-                            <BookOpen size={18} className="text-indigo-400" /> DivulgaciÃ³n
+                            <BookOpen size={18} className="text-indigo-400" /> Divulgación
                           </a>
                           <a href="#reports" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Library size={18} className="text-indigo-400" /> Informes
@@ -278,7 +278,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                       </div>
   
                       <div className="space-y-1">
-                        <h3 className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em] px-3 mb-2 opacity-70">InvestigaciÃ³n</h3>
+                        <h3 className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em] px-3 mb-2 opacity-70">Investigación</h3>
                         <div className="grid grid-cols-1 gap-1">
                           <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Briefcase size={18} className="text-indigo-400" /> Proyectos
@@ -299,7 +299,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
           </div>
         </nav>
   
-        {/* Modal de BÃºsqueda */}
+        {/* Modal de Búsqueda */}
         <AnimatePresence>
           {isSearchOpen && (
             <div className="fixed inset-0 z-[100] flex items-start justify-center pt-20 px-4">
@@ -322,7 +322,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                     <input 
                       autoFocus
                       type="text" 
-                      placeholder="Busca proyectos, artÃ­culos, eventos..."
+                      placeholder="Busca proyectos, artículos, eventos..."
                       className="w-full bg-transparent text-xl outline-none text-gray-800 placeholder:text-gray-400"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}

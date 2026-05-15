@@ -12,7 +12,7 @@ export default function DivulgationSection({ expandedSection, toggleSection }: S
           <div className="glass rounded-3xl p-6 md:p-12">
             <div className="flex justify-between items-center mb-6 md:mb-8">
               <h2 className="serif text-2xl md:text-3xl font-bold flex items-center gap-3">
-                <BookOpen className="text-indigo-600" /> Publicaciones de DivulgaciÃ³n
+                <BookOpen className="text-indigo-600" /> Publicaciones de Divulgación
               </h2>
               <button 
                 onClick={() => toggleSection('divulgation')}
@@ -28,7 +28,7 @@ export default function DivulgationSection({ expandedSection, toggleSection }: S
                   <div key={idx} className="p-4 md:p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                       <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
-                        ArtÃ­culo de DivulgaciÃ³n
+                        Artículo de Divulgación
                       </span>
                       <span className="text-xs font-bold text-gray-500">{article.year}</span>
                     </div>
@@ -43,9 +43,9 @@ export default function DivulgationSection({ expandedSection, toggleSection }: S
                         <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Volumen:</span> {article.volume}</p>
                       </div>
                       <div className="space-y-2">
-                        <p className="text-gray-600"><span className="font-bold text-indigo-900/70">PÃ¡ginas:</span> {article.pages}</p>
-                        <p className="text-gray-600"><span className="font-bold text-indigo-900/70">PaÃ­s:</span> {article.location}</p>
-                        <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Ãreas:</span> {article.areas}</p>
+                        <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Páginas:</span> {article.pages}</p>
+                        <p className="text-gray-600"><span className="font-bold text-indigo-900/70">País:</span> {article.location}</p>
+                        <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Áreas:</span> {article.areas}</p>
                       </div>
                       {article.keywords && (
                         <div className="md:col-span-2 mt-2">

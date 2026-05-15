@@ -40,9 +40,9 @@ export default function ExperienceSection({ expandedSection, toggleSection }: Se
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                           {exp.activities.admin && (
                             <div className="space-y-2">
-                              <h4 className="text-[10px] uppercase tracking-widest font-bold text-gray-400">AdministraciÃ³n</h4>
+                              <h4 className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Administración</h4>
                               <ul className="text-xs md:text-sm text-gray-600 space-y-1">
-                                {exp.activities.admin.map((a, i) => <li key={i} className="flex gap-2"><span>â€¢</span> {a}</li>)}
+                                {exp.activities.admin.map((a, i) => <li key={i} className="flex gap-2"><span>•</span> {a}</li>)}
                               </ul>
                             </div>
                           )}
@@ -50,15 +50,15 @@ export default function ExperienceSection({ expandedSection, toggleSection }: Se
                             <div className="space-y-2">
                               <h4 className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Docencia</h4>
                               <ul className="text-xs md:text-sm text-gray-600 space-y-1">
-                                {exp.activities.teaching.map((t, i) => <li key={i} className="flex gap-2"><span>â€¢</span> {t}</li>)}
+                                {exp.activities.teaching.map((t, i) => <li key={i} className="flex gap-2"><span>•</span> {t}</li>)}
                               </ul>
                             </div>
                           )}
                           {exp.activities.research && (
                             <div className="space-y-2">
-                              <h4 className="text-[10px] uppercase tracking-widest font-bold text-gray-400">InvestigaciÃ³n</h4>
+                              <h4 className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Investigación</h4>
                               <ul className="text-xs md:text-sm text-gray-600 space-y-1">
-                                {exp.activities.research.map((r, i) => <li key={i} className="flex gap-2"><span>â€¢</span> {r}</li>)}
+                                {exp.activities.research.map((r, i) => <li key={i} className="flex gap-2"><span>•</span> {r}</li>)}
                               </ul>
                             </div>
                           )}

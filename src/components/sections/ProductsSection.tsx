@@ -46,7 +46,7 @@ export default function ProductsSection() {
                       href={product.link} 
                       className="w-full py-4 md:py-5 bg-indigo-600/5 hover:bg-indigo-600/10 border-t border-white/40 text-indigo-700 font-bold flex items-center justify-center gap-3 transition-all duration-300 group/btn"
                     >
-                      Ver mÃ¡s <ExternalLink size={18} className="group-hover/btn:translate-x-1 transition-transform" />
+                      Ver más <ExternalLink size={18} className="group-hover/btn:translate-x-1 transition-transform" />
                     </a>
                   </div>
                 </motion.div>
