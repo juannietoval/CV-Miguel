@@ -51,25 +51,54 @@ export default function Header() {
     }
   }, [isMobileMenuOpen]);
 
-  // Lógica de búsqueda
+  // Lógica de búsqueda mejorada (con tokenización y puntuación)
   useEffect(() => {
     if (searchQuery.trim() === '') {
       setSearchResults([]);
       return;
     }
 
-    const query = searchQuery.toLowerCase();
-    const results: any[] = [];
+    const normalizeText = (text) => {
+      if (typeof text !== 'string') return '';
+      return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    };
 
-    // Función auxiliar para buscar en objetos
-    const searchInData = (data: any[], sectionId: string, sectionName: string) => {
-      data.forEach((item: any) => {
-        const textToSearch = JSON.stringify(item).toLowerCase();
-        if (textToSearch.includes(query)) {
+    const queryTokens = normalizeText(searchQuery).split(' ').filter(Boolean);
+    const results = [];
+
+    const searchInData = (data, sectionId, sectionName) => {
+      if (!data) return;
+      data.forEach((item) => {
+        let score = 0;
+        const titleStr = String(item.title || item.role || item.name || item.institution || "");
+        const titleNorm = normalizeText(titleStr);
+        
+        // Obtenemos solo los valores ignorando propiedades de sistema como id o links de imágenes
+        const valuesToSearch = Object.entries(item)
+          .filter(([key, val]) => key !== 'id' && key !== 'image' && key !== 'link' && typeof val === 'string')
+          .map(([key, val]) => val);
+        
+        const contentNorm = normalizeText(valuesToSearch.join(' '));
+
+        let allTokensMatched = true;
+        queryTokens.forEach(token => {
+          let tokenMatched = false;
+          if (titleNorm.includes(token)) {
+            score += 10; 
+            tokenMatched = true;
+          } else if (contentNorm.includes(token)) {
+            score += 2;
+            tokenMatched = true;
+          }
+          if (!tokenMatched) allTokensMatched = false;
+        });
+
+        if (score > 0 && allTokensMatched) {
           results.push({
+            score,
             id: item.id || Math.random(),
-            title: item.title || item.role || item.name || item.institution || "Sin título",
-            subtitle: item.institution || item.type || item.year || "",
+            title: titleStr || "Sin título",
+            subtitle: item.institution || item.type || item.year || item.date || item.publisher || item.journal || "",
             sectionId,
             sectionName,
             originalItem: item
@@ -95,7 +124,9 @@ export default function Header() {
     searchInData(PROFESSOR_DATA.projects, 'projects', 'Proyectos');
     searchInData(PROFESSOR_DATA.complementary, 'complementary', 'Cursos');
 
-    setSearchResults(results.slice(0, 10)); // Limitar a 10 resultados para rendimiento
+    // Ordenar por relevancia y limitar a 10
+    results.sort((a, b) => b.score - a.score);
+    setSearchResults(results.slice(0, 10));
   }, [searchQuery]);
 
   // Atajo de teclado para búsqueda (Ctrl+K y ESC)

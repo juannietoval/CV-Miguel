@@ -30,6 +30,7 @@ void PROFESSOR_DATA;
 
 
 import { Routes, Route } from 'react-router-dom';
+import AdminPanel from './components/sections/AdminPanel';
 
 export default function App() {
   return (
@@ -62,6 +63,7 @@ export default function App() {
           <Route path="/artistic" element={<ArtisticWorksSection />} />
           <Route path="/projects" element={<ProjectsSection />} />
           <Route path="/complementary" element={<ComplementarySection />} />
+          <Route path="/admin" element={<AdminPanel />} />
         </Routes>
       </main>
 
