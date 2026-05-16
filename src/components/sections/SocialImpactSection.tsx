@@ -1,25 +1,17 @@
 ﻿import { Users, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
-interface SectionProps {
-  expandedSection: string | null;
-  toggleSection: (section: string) => void;
-}
 
-export default function SocialImpactSection({ expandedSection, toggleSection }: SectionProps) {
+
+export default function SocialImpactSection() {
   return (
-                <section id="social" className={`scroll-mt-20 md:scroll-mt-28 transition-all duration-500 ${expandedSection === 'social' ? 'expanded' : ''}`}>
+                <section id="social" className={`scroll-mt-20 md:scroll-mt-28 transition-all duration-500 expanded`}>
           <div className="glass rounded-3xl p-6 md:p-12">
             <div className="flex justify-between items-center mb-6 md:mb-8">
               <h2 className="serif text-2xl md:text-3xl font-bold flex items-center gap-3">
                 <Users className="text-indigo-600" /> Impacto Social y Apropiación del Conocimiento
               </h2>
-              <button 
-                onClick={() => toggleSection('social')}
-                className="text-indigo-400 hover:text-indigo-600 transition-colors p-2"
-              >
-                {expandedSection === 'social' ? <ChevronUp size={20} className="md:w-[24px]" /> : <ChevronDown size={20} className="md:w-[24px]" />}
-              </button>
+              
             </div>
 
             <div className="expandable-content">

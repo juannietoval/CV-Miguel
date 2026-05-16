@@ -1,25 +1,17 @@
 ﻿import { Calendar, ChevronDown, ChevronUp } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
-interface SectionProps {
-  expandedSection: string | null;
-  toggleSection: (section: string) => void;
-}
 
-export default function EventsSection({ expandedSection, toggleSection }: SectionProps) {
+
+export default function EventsSection() {
   return (
-    <section id="events" className={`scroll-mt-20 md:scroll-mt-28 transition-all duration-500 ${expandedSection === 'events' ? 'expanded' : ''}`}>
+    <section id="events" className={`scroll-mt-20 md:scroll-mt-28 transition-all duration-500 expanded`}>
               <div className="glass rounded-3xl p-6 md:p-12">
                 <div className="flex justify-between items-center mb-6 md:mb-8">
                   <h2 className="serif text-2xl md:text-3xl font-bold flex items-center gap-3">
                     <Calendar className="text-indigo-600" /> Eventos Científicos
                   </h2>
-                  <button 
-                    onClick={() => toggleSection('events')}
-                    className="text-indigo-400 hover:text-indigo-600 transition-colors p-2"
-                  >
-                    {expandedSection === 'events' ? <ChevronUp size={20} className="md:w-[24px]" /> : <ChevronDown size={20} className="md:w-[24px]" />}
-                  </button>
+                  
                 </div>
     
                 <div className="expandable-content">

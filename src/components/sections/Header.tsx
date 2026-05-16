@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   ChevronDown,
   ChevronUp,
@@ -18,13 +18,13 @@ import {
   BookOpen
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link, useNavigate } from 'react-router-dom';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
-interface HeaderProps {
-  setExpandedSection: (section: string | null) => void;
-}
 
-export default function Header({ setExpandedSection }: HeaderProps) {
+
+export default function Header() {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -94,7 +94,6 @@ export default function Header({ setExpandedSection }: HeaderProps) {
     searchInData(PROFESSOR_DATA.artisticWorks, 'artistic', 'Obras');
     searchInData(PROFESSOR_DATA.projects, 'projects', 'Proyectos');
     searchInData(PROFESSOR_DATA.complementary, 'complementary', 'Cursos');
-    searchInData(PROFESSOR_DATA.products, 'products', 'Publicaciones');
 
     setSearchResults(results.slice(0, 10)); // Limitar a 10 resultados para rendimiento
   }, [searchQuery]);
@@ -140,9 +139,9 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                     </button>
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden group-hover:block z-50">
                       <div className="glass bg-white/95 rounded-xl shadow-xl border border-white/50 p-2 min-w-[140px] flex flex-col gap-1">
-                        <a href="#bio" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Biografía</a>
-                        <a href="#cv" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Formación</a>
-                        <a href="#experience" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Experiencia</a>
+                        <Link to="/bio" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Biografía</Link>
+                        <Link to="/cv" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Formación</Link>
+                        <Link to="/experience" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Experiencia</Link>
                       </div>
                     </div>
                   </div>
@@ -154,10 +153,10 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                     </button>
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden group-hover:block z-50">
                       <div className="glass bg-white/95 rounded-xl shadow-xl border border-white/50 p-2 min-w-[140px] flex flex-col gap-1">
-                        <a href="#tutoring" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Tutorías</a>
-                        <a href="#jury" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Jurados</a>
-                        <a href="#events" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Eventos</a>
-                        <a href="#networks" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Redes</a>
+                        <Link to="/tutoring" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Tutorías</Link>
+                        <Link to="/jury" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Jurados</Link>
+                        <Link to="/events" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Eventos</Link>
+                        <Link to="/networks" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Redes</Link>
                       </div>
                     </div>
                   </div>
@@ -169,12 +168,11 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                     </button>
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden group-hover:block z-50">
                       <div className="glass bg-white/95 rounded-xl shadow-xl border border-white/50 p-2 min-w-[160px] flex flex-col gap-1">
-                        <a href="#articles" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Artículos</a>
-                        <a href="#divulgation" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Divulgación</a>
-                        <a href="#divulgation-books" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Libros Div.</a>
-                        <a href="#reports" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Informes</a>
-                        <a href="#artistic" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Obras</a>
-                        <a href="#products" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Publicaciones</a>
+                        <Link to="/articles" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Artículos</Link>
+                        <Link to="/divulgation" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Divulgación</Link>
+                        <Link to="/divulgation-books" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Libros Div.</Link>
+                        <Link to="/reports" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Informes</Link>
+                        <Link to="/artistic" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Obras</Link>
                       </div>
                     </div>
                   </div>
@@ -186,14 +184,14 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                     </button>
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden group-hover:block z-50">
                       <div className="glass bg-white/95 rounded-xl shadow-xl border border-white/50 p-2 min-w-[140px] flex flex-col gap-1">
-                        <a href="#projects" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Proyectos</a>
-                        <a href="#social" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Impacto Social</a>
+                        <Link to="/projects" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Proyectos</Link>
+                        <Link to="/social" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Impacto Social</Link>
                       </div>
                     </div>
                   </div>
   
-                  <a href="#audiovisual" className="hover:text-indigo-600 transition-colors py-1">Audiovisual</a>
-                  <a href="#complementary" className="hover:text-indigo-600 transition-colors py-1">Cursos</a>
+                  <Link to="/audiovisual" className="hover:text-indigo-600 transition-colors py-1">Audiovisual</Link>
+                  <Link to="/complementary" className="hover:text-indigo-600 transition-colors py-1">Cursos</Link>
                 </div>
   
                 {/* Acciones (Búsqueda y Menú Móvil) */}
@@ -229,66 +227,63 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                       <div className="space-y-1">
                         <h3 className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em] px-3 mb-2 opacity-70">Perfil</h3>
                         <div className="grid grid-cols-1 gap-1">
-                          <a href="#bio" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          <Link to="/bio" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Users size={18} className="text-indigo-400" /> Biografía
-                          </a>
-                          <a href="#cv" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          </Link>
+                          <Link to="/cv" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <GraduationCap size={18} className="text-indigo-400" /> Formación
-                          </a>
-                          <a href="#experience" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          </Link>
+                          <Link to="/experience" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Briefcase size={18} className="text-indigo-400" /> Experiencia
-                          </a>
+                          </Link>
                         </div>
                       </div>
                       
                       <div className="space-y-1">
                         <h3 className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em] px-3 mb-2 opacity-70">Academia</h3>
                         <div className="grid grid-cols-1 gap-1">
-                          <a href="#tutoring" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          <Link to="/tutoring" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Users size={18} className="text-indigo-400" /> Tutorías
-                          </a>
-                          <a href="#jury" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          </Link>
+                          <Link to="/jury" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Gavel size={18} className="text-indigo-400" /> Jurados
-                          </a>
-                          <a href="#events" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          </Link>
+                          <Link to="/events" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Calendar size={18} className="text-indigo-400" /> Eventos
-                          </a>
-                          <a href="#networks" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          </Link>
+                          <Link to="/networks" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Globe size={18} className="text-indigo-400" /> Redes
-                          </a>
+                          </Link>
                         </div>
                       </div>
   
                       <div className="space-y-1">
                         <h3 className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em] px-3 mb-2 opacity-70">Producción</h3>
                         <div className="grid grid-cols-1 gap-1">
-                          <a href="#articles" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          <Link to="/articles" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <FileText size={18} className="text-indigo-400" /> Artículos
-                          </a>
-                          <a href="#divulgation" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          </Link>
+                          <Link to="/divulgation" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <BookOpen size={18} className="text-indigo-400" /> Divulgación
-                          </a>
-                          <a href="#reports" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          </Link>
+                          <Link to="/reports" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Library size={18} className="text-indigo-400" /> Informes
-                          </a>
-                          <a href="#products" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
-                            <Book size={18} className="text-indigo-400" /> Publicaciones
-                          </a>
+                          </Link>
                         </div>
                       </div>
   
                       <div className="space-y-1">
                         <h3 className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em] px-3 mb-2 opacity-70">Investigación</h3>
                         <div className="grid grid-cols-1 gap-1">
-                          <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          <Link to="/projects" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Briefcase size={18} className="text-indigo-400" /> Proyectos
-                          </a>
-                          <a href="#social" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          </Link>
+                          <Link to="/social" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Users size={18} className="text-indigo-400" /> Impacto Social
-                          </a>
-                          <a href="#audiovisual" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
+                          </Link>
+                          <Link to="/audiovisual" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-indigo-50 rounded-2xl transition-all active:scale-95">
                             <Globe size={18} className="text-indigo-400" /> Audiovisual
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -340,12 +335,12 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                   {searchResults.length > 0 ? (
                     <div className="space-y-2">
                       {searchResults.map((result, idx) => (
-                        <a 
+                        <Link 
                           key={idx}
-                          href={`#${result.sectionId}`}
+                          to={`/${result.sectionId}`}
                           onClick={() => {
                             setIsSearchOpen(false);
-                            setExpandedSection(result.sectionId);
+                            navigate(`/${result.sectionId}`);
                           }}
                           className="flex flex-col p-4 hover:bg-indigo-50 rounded-2xl transition-all border border-transparent hover:border-indigo-100 group"
                         >
@@ -355,7 +350,7 @@ export default function Header({ setExpandedSection }: HeaderProps) {
                           </div>
                           <h4 className="font-bold text-gray-800 group-hover:text-indigo-900 transition-colors line-clamp-1">{result.title}</h4>
                           <p className="text-sm text-gray-500 line-clamp-2">{result.subtitle}</p>
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   ) : searchQuery ? (
