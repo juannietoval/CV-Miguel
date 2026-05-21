@@ -1,4 +1,4 @@
-﻿import { FileText, ChevronDown, ChevronUp } from 'lucide-react';
+import { FileText, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
 
@@ -39,6 +39,19 @@ export default function ArticlesSection() {
                         <p className="text-gray-600"><span className="font-bold text-indigo-900/70">País:</span> {article.location}</p>
                       </div>
                     </div>
+                    {article.link && (
+                      <div className="mt-4 flex justify-end">
+                        <a
+                          href={article.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-850 rounded-xl text-xs md:text-sm font-semibold transition-all hover:scale-[1.02] active:scale-95 border border-indigo-200/30"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4 text-indigo-650" />
+                          Ver Artículo
+                        </a>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

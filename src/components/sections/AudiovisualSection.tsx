@@ -50,14 +50,16 @@ export default function AudiovisualSection() {
                           <span className="font-bold not-italic">Proyecto / Descripción:</span> {item.project}
                         </p>
                       )}
-                      <a 
-                        href={item.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="w-full py-2 rounded-xl bg-indigo-600 text-white text-center text-sm font-bold hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2 mt-4"
-                      >
-                        Ver Producción <ExternalLink size={14} />
-                      </a>
+                      {item.link && (
+                        <a 
+                          href={item.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="w-full py-2 rounded-xl bg-indigo-600 text-white text-center text-sm font-bold hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2 mt-4"
+                        >
+                          Ver Producción <ExternalLink size={14} />
+                        </a>
+                      )}
                     </div>
                   </div>
                 ))}

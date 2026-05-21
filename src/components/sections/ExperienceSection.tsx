@@ -1,4 +1,4 @@
-﻿import { Briefcase, ChevronDown, ChevronUp } from 'lucide-react';
+import { Briefcase, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
 
@@ -55,6 +55,20 @@ export default function ExperienceSection() {
                             </div>
                           )}
                         </div>
+
+                        {exp.link && (
+                          <div className="mt-4 flex justify-end border-t border-indigo-50/50 pt-3">
+                            <a
+                              href={exp.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-850 rounded-xl text-xs font-semibold transition-all hover:scale-[1.02] active:scale-95 border border-indigo-200/30"
+                            >
+                              <ExternalLink className="w-3.5 h-3.5 text-indigo-650" />
+                              Ver Soporte
+                            </a>
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>

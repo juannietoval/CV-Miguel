@@ -1,4 +1,4 @@
-﻿import { Award, Calendar, Gavel, ChevronDown, ChevronUp } from 'lucide-react';
+import { Award, Calendar, Gavel, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
 
@@ -31,6 +31,20 @@ export default function ArtisticWorksSection() {
                       <span className="font-bold text-indigo-900/70">Disciplina:</span> {work.discipline}
                     </p>
                     
+                    {work.link && (
+                      <div className="mt-4 flex justify-end">
+                        <a
+                          href={work.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-850 rounded-xl text-xs md:text-sm font-semibold transition-all hover:scale-[1.02] active:scale-95 border border-indigo-200/30"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4 text-indigo-650" />
+                          Ver Recurso
+                        </a>
+                      </div>
+                    )}
+
                     <div className="mt-6 border-t border-white/30 pt-6">
                       <h4 className="text-xs font-bold text-indigo-900/70 uppercase tracking-widest mb-4">Instancias de Valoración</h4>
                       <div className="grid grid-cols-1 gap-4">

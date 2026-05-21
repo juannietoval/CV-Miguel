@@ -1,4 +1,4 @@
-﻿import { Users, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { Users, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
 
@@ -39,16 +39,31 @@ export default function SocialImpactSection() {
                       </div>
                       <div className="space-y-2">
                         <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Proyecto:</span> {item.project}</p>
-                        <a 
-                          href={item.verification} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-bold transition-colors"
-                        >
-                          Verificación <ExternalLink size={16} />
-                        </a>
+                        {item.verification && (
+                          <a 
+                            href={item.verification} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-bold transition-colors mt-1"
+                          >
+                            Verificación <ExternalLink size={16} />
+                          </a>
+                        )}
                       </div>
                     </div>
+                    {item.link && (
+                      <div className="mt-4 flex justify-end">
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-850 rounded-xl text-xs md:text-sm font-semibold transition-all hover:scale-[1.02] active:scale-95 border border-indigo-200/30"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4 text-indigo-650" />
+                          Ver Recurso
+                        </a>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

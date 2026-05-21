@@ -1,4 +1,4 @@
-﻿import { Calendar, ChevronDown, ChevronUp } from 'lucide-react';
+import { Calendar, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
 
@@ -45,6 +45,19 @@ export default function EventsSection() {
                             <p className="text-indigo-600 md:col-span-2 italic"><span className="font-bold text-indigo-900/70 not-italic">Producto:</span> {event.product}</p>
                           )}
                         </div>
+                        {event.link && (
+                          <div className="mt-3 flex justify-end">
+                            <a
+                              href={event.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-850 rounded-xl text-xs font-semibold transition-all hover:scale-[1.02] active:scale-95 border border-indigo-200/30"
+                            >
+                              <ExternalLink className="w-3 h-3 text-indigo-650" />
+                              Ver Soporte
+                            </a>
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>

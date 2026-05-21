@@ -1,4 +1,4 @@
-﻿import { FileText, ChevronDown, ChevronUp } from 'lucide-react';
+import { FileText, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
 
 
@@ -17,14 +17,27 @@ export default function ComplementarySection() {
                 <div className="expandable-content">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {PROFESSOR_DATA.complementary.map((item, idx) => (
-                      <div key={idx} className="p-4 rounded-xl bg-white/10 border border-white/20 flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">
-                          {item.year.slice(-2)}
+                      <div key={idx} className="p-4 rounded-xl bg-white/10 border border-white/20 flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-4">
+                          <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs shrink-0">
+                            {item.year.slice(-2)}
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold">{item.title}</h4>
+                            <p className="text-xs text-gray-500">{item.institution}</p>
+                          </div>
                         </div>
-                        <div>
-                          <h4 className="text-sm font-bold">{item.title}</h4>
-                          <p className="text-xs text-gray-500">{item.institution}</p>
-                        </div>
+                        {item.link && (
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-850 rounded-xl transition-all active:scale-95 border border-indigo-200/30 shrink-0"
+                            title="Ver Curso"
+                          >
+                            <ExternalLink className="w-3.5 h-3.5 text-indigo-650" />
+                          </a>
+                        )}
                       </div>
                     ))}
                   </div>
