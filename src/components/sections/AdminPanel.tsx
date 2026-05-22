@@ -54,7 +54,7 @@ const SECTIONS_CONFIG: { [key: string]: { title: string; keys: string[] } } = {
     keys: ["year", "title", "medium", "link"]
   },
   divulgationBooks: {
-    title: "Libros y Capítulos de Divulgación",
+    title: "Libros",
     keys: ["year", "title", "publisher", "isbn", "image", "description", "link", "type"]
   },
   researchReports: {

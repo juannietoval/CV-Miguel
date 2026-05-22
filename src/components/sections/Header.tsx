@@ -118,7 +118,7 @@ export default function Header() {
     searchInData(PROFESSOR_DATA.digitalContent, 'audiovisual', 'Audiovisual');
     searchInData(PROFESSOR_DATA.articles, 'articles', 'Artículos');
     searchInData(PROFESSOR_DATA.nonScientificArticles, 'divulgation', 'Divulgación');
-    searchInData(PROFESSOR_DATA.divulgationBooks, 'divulgation-books', 'Libros Div.');
+    searchInData(PROFESSOR_DATA.divulgationBooks, 'divulgation-books', 'Libros');
     searchInData(PROFESSOR_DATA.researchReports, 'reports', 'Informes');
     searchInData(PROFESSOR_DATA.artisticWorks, 'artistic', 'Obras');
     searchInData(PROFESSOR_DATA.projects, 'projects', 'Proyectos');
@@ -153,13 +153,7 @@ export default function Header() {
               
               {/* Barra Principal */}
               <div className="flex justify-between items-center w-full">
-                {/* Logo o Nombre */}
-                <div className="flex items-center gap-3">
-                  <div className="w-1.5 h-6 bg-indigo-500 rounded-full hidden sm:block" />
-                  <div className="font-bold text-indigo-950 text-sm md:text-base tracking-tight">
-                    M.A. PUENTES CASTRO
-                  </div>
-                </div>
+
   
                 {/* Menú Desktop (Oculto en móvil/tablet pequeña) */}
                 <div className="hidden lg:flex items-center gap-4 xl:gap-8 text-[11px] xl:text-xs font-bold uppercase tracking-wider">
@@ -201,7 +195,7 @@ export default function Header() {
                       <div className="glass bg-white/95 rounded-xl shadow-xl border border-white/50 p-2 min-w-[160px] flex flex-col gap-1">
                         <Link to="/articles" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Artículos</Link>
                         <Link to="/divulgation" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Divulgación</Link>
-                        <Link to="/divulgation-books" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Libros Div.</Link>
+                        <Link to="/divulgation-books" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Libros</Link>
                         <Link to="/reports" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Informes</Link>
                         <Link to="/artistic" className="px-3 py-2 hover:bg-indigo-50 rounded-lg transition-colors text-gray-700 normal-case font-medium">Obras</Link>
                       </div>
@@ -221,12 +215,12 @@ export default function Header() {
                     </div>
                   </div>
   
-                  <Link to="/audiovisual" className="hover:text-indigo-600 transition-colors py-1">Audiovisual</Link>
-                  <Link to="/complementary" className="hover:text-indigo-600 transition-colors py-1">Cursos</Link>
+                  <Link to="/audiovisual" className="hover:text-indigo-600 transition-colors py-1 normal-case">Audiovisual</Link>
+                  <Link to="/complementary" className="hover:text-indigo-600 transition-colors py-1 normal-case">Cursos</Link>
                 </div>
   
                 {/* Acciones (Búsqueda y Menú Móvil) */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 ml-auto lg:ml-0">
                   <button 
                     onClick={() => setIsSearchOpen(true)}
                     className="flex items-center gap-2 px-3 md:px-5 py-2 md:py-2.5 bg-white/50 hover:bg-white text-indigo-600 rounded-full transition-all border border-indigo-100 hover:border-indigo-200 shadow-sm hover:shadow-md group"
