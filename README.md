@@ -34,4 +34,4 @@ In GitHub:
 
 After a successful workflow run, the site will be available at:
 
-`https://<github-user>.github.io/CV-Miguel/`
+`https://<juannietoval>.github.io/CV-Miguel/`
