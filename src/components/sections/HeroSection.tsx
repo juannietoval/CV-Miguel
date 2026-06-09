@@ -1,11 +1,12 @@
 import { MapPin, Mail, Linkedin, Library } from 'lucide-react';
 import { AcademiaIcon, GoogleScholarIcon, ResearchGateIcon } from '../CustomIcons';
 import { PROFESSOR_DATA } from '../../data/professorData';
+import { motion } from 'motion/react';
 
 export default function HeroSection() {
   return (
             <section id="bio" className="scroll-mt-20 md:scroll-mt-28">
-              <div className="glass rounded-3xl p-8 md:p-12 flex flex-col items-center text-center relative overflow-hidden">
+              <div className="rounded-3xl p-8 md:p-12 flex flex-col items-center text-center relative overflow-hidden">
                 {/* Foto de Perfil Centrada */}
                 <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white/50 shadow-xl mb-8 flex-shrink-0">
                   <img 
@@ -34,53 +35,59 @@ export default function HeroSection() {
                     </span>
                   </div>
     
-                  {/* Redes Sociales Centradas */}
-                  <div className="flex flex-wrap justify-center gap-3 mb-10">
-                    <a 
-                      href={PROFESSOR_DATA.social.linkedin} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      data-tooltip="LinkedIn" 
-                      className="social-btn group p-4 glass rounded-2xl hover:bg-[#0077b5] hover:scale-110 text-[#0077b5] hover:text-white shadow-sm transition-all"
-                    >
-                      <Linkedin size={22} />
-                    </a>
-                    <a 
-                      href={PROFESSOR_DATA.social.scholar} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      data-tooltip="Google Scholar" 
-                      className="social-btn group p-4 glass rounded-2xl hover:bg-[#4285F4] hover:scale-110 text-[#4285F4] hover:text-white shadow-sm transition-all"
-                    >
-                      <GoogleScholarIcon size={22} />
-                    </a>
-                    <a 
-                      href={PROFESSOR_DATA.social.researchgate} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      data-tooltip="ResearchGate" 
-                      className="social-btn group p-4 glass rounded-2xl hover:bg-[#00ccbb] hover:scale-110 text-[#00ccbb] hover:text-white shadow-sm transition-all"
-                    >
-                      <ResearchGateIcon size={22} />
-                    </a>
-                    <a 
-                      href={PROFESSOR_DATA.social.academia} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      data-tooltip="Academia.edu" 
-                      className="social-btn group p-4 glass rounded-2xl hover:bg-[#313535] hover:scale-110 text-[#313535] hover:text-white shadow-sm transition-all"
-                    >
-                      <AcademiaIcon size={22} />
-                    </a>
-                    <a 
-                      href={PROFESSOR_DATA.social.repository} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      data-tooltip="Repositorio UTP" 
-                      className="social-btn group p-4 glass rounded-2xl hover:bg-indigo-600 hover:scale-110 text-indigo-600 hover:text-white shadow-sm transition-all"
-                    >
-                      <Library size={22} />
-                    </a>
+                  {/* Redes Sociales "Liquid Glass" (Inspirado en 21st.dev) */}
+                  <div className="flex flex-wrap justify-center gap-4 mb-12">
+                    {[
+                      { icon: Linkedin, url: PROFESSOR_DATA.social.linkedin, color: '#0077b5', label: 'LinkedIn' },
+                      { icon: GoogleScholarIcon, url: PROFESSOR_DATA.social.scholar, color: '#4285F4', label: 'Scholar' },
+                      { icon: ResearchGateIcon, url: PROFESSOR_DATA.social.researchgate, color: '#00ccbb', label: 'ResearchGate' },
+                      { icon: AcademiaIcon, url: PROFESSOR_DATA.social.academia, color: '#313535', label: 'Academia' },
+                      { icon: Library, url: PROFESSOR_DATA.social.repository, color: '#4f46e5', label: 'Repositorio' },
+                    ].map((item, idx) => (
+                      <motion.a
+                        key={idx}
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover="hover"
+                        initial="initial"
+                        className="group relative flex items-center justify-center p-4 rounded-2xl bg-white/20 backdrop-blur-md border border-white/40 shadow-lg overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(31,38,135,0.15)]"
+                        style={{ color: item.color }}
+                      >
+                        {/* Brillo Interior / Resplandor (Glow) */}
+                        <motion.div 
+                          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          style={{
+                            background: `radial-gradient(circle at center, ${item.color}20 0%, transparent 70%)`
+                          }}
+                        />
+                        
+                        {/* Fondo que se expande */}
+                        <motion.div
+                          variants={{
+                            initial: { y: '100%', opacity: 0 },
+                            hover: { y: 0, opacity: 1 }
+                          }}
+                          transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                          className="absolute inset-0 z-0"
+                          style={{ backgroundColor: item.color }}
+                        />
+
+                        {/* Icono y Etiqueta */}
+                        <div className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-300">
+                          <item.icon size={24} />
+                          <motion.span 
+                            variants={{
+                              initial: { width: 0, opacity: 0, marginLeft: 0 },
+                              hover: { width: 'auto', opacity: 1, marginLeft: 4 }
+                            }}
+                            className="overflow-hidden whitespace-nowrap text-sm font-bold tracking-wide"
+                          >
+                            {item.label}
+                          </motion.span>
+                        </div>
+                      </motion.a>
+                    ))}
                   </div>
     
                   {/* Biografía (Siempre Visible) */}

@@ -24,6 +24,7 @@ import ReportsSection from './components/sections/ReportsSection';
 import ArtisticWorksSection from './components/sections/ArtisticWorksSection';
 import ProjectsSection from './components/sections/ProjectsSection';
 import HeroSection from './components/sections/HeroSection';
+import { InfiniteGrid } from './components/ui/InfiniteGrid';
 
 // Suppress unused import warning — PROFESSOR_DATA is referenced by child components
 void PROFESSOR_DATA;
@@ -35,6 +36,9 @@ import AdminPanel from './components/sections/AdminPanel';
 export default function App() {
   return (
     <div className="relative min-h-screen overflow-hidden">
+      {/* Fondo Global Interactivo */}
+      <InfiniteGrid />
+
       {/* Elementos Decorativos Flotantes */}
       <div className="floating-shape w-64 h-64 bg-indigo-400 top-20 -left-20" />
       <div className="floating-shape w-96 h-96 bg-pink-300 bottom-20 -right-20" style={{ animationDelay: '-5s' }} />

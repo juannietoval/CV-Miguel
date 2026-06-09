@@ -13,7 +13,7 @@
   --bg-gradient-2: #fef2f2; /* Color de fondo 2 (Cálido) */
   
   /* Variables internas derivadas */
-  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.25);
   --glass-border: rgba(255, 255, 255, 0.2);
   --text-main: #1f2937;
   --text-muted: #4b5563;
@@ -43,8 +43,8 @@ body {
 
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
