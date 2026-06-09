@@ -1,4 +1,4 @@
-﻿import { MapPin, Mail, Linkedin, Library } from 'lucide-react';
+import { MapPin, Mail, Linkedin, Library } from 'lucide-react';
 import { AcademiaIcon, GoogleScholarIcon, ResearchGateIcon } from '../CustomIcons';
 import { PROFESSOR_DATA } from '../../data/professorData';
 

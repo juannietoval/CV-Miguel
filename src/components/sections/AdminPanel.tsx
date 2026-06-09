@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Download, Plus, Trash2, Edit3, ArrowUp, ArrowDown, Save, 
-  Settings, Database, CheckCircle, HelpCircle, FileText, ArrowRight,
+  Settings, Database, CheckCircle, HelpCircle, FileText, ArrowRight, ArrowLeft,
   Lock, Eye, EyeOff, LogOut, ExternalLink, Loader2, AlertTriangle, Shield, Check, X, RefreshCw
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -11,67 +12,67 @@ import { PROFESSOR_DATA } from '../../data/professorData';
 const SECTIONS_CONFIG: { [key: string]: { title: string; keys: string[] } } = {
   bio_info: {
     title: "Datos del Perfil (Biografía)",
-    keys: ["name", "title", "profileImage", "bio", "email", "faculty", "department", "location"]
+    keys: ["name", "title", "profileImage", "bio", "email", "faculty", "department", "location", "social_linkedin", "social_scholar", "social_researchgate", "social_academia", "social_repository"]
   },
   cv: {
     title: "Formación Académica",
-    keys: ["year", "role", "institution", "description"]
+    keys: ["year", "role", "institution", "description", "link"]
   },
   experience: {
     title: "Experiencia Profesional",
-    keys: ["institution", "dedication", "period"] // Activities handled separately due to nested structure
+    keys: ["institution", "dedication", "period", "link"] // Activities handled separately due to nested structure
   },
   tutoring: {
     title: "Tutorías y Asesorías",
-    keys: ["year", "title", "student", "program", "status"]
+    keys: ["type", "year", "title", "institution", "status", "student", "role", "link"]
   },
   jury: {
     title: "Jurados de Tesis",
-    keys: ["year", "type", "title", "student", "institution", "program"]
+    keys: ["year", "type", "title", "student", "institution", "program", "link"]
   },
   events: {
     title: "Eventos Académicos",
-    keys: ["year", "type", "name", "institution", "role"]
+    keys: ["name", "type", "scope", "date", "location", "role", "product", "link", "participants", "institutions"]
   },
   networks: {
     title: "Redes y Asociaciones",
-    keys: ["name", "role", "type"]
+    keys: ["name", "type", "date", "location", "link"]
   },
   socialImpact: {
     title: "Impacto Social y Extensión",
-    keys: ["year", "title", "description", "link"]
+    keys: ["title", "date", "license", "format", "project", "verification", "link"]
   },
   digitalContent: {
     title: "Producciones Audiovisuales y Contenido",
-    keys: ["title", "platform", "type", "year", "link", "image", "description"]
+    keys: ["title", "type", "date", "location", "circulation", "project", "link", "image"]
   },
   articles: {
     title: "Artículos Científicos",
-    keys: ["year", "title", "journal", "volume", "pages", "doi", "link"]
+    keys: ["year", "title", "authors", "journal", "issn", "publisher", "details", "location", "link"]
   },
   nonScientificArticles: {
     title: "Artículos de Divulgación",
-    keys: ["year", "title", "medium", "link"]
+    keys: ["year", "title", "authors", "journal", "issn", "volume", "pages", "location", "areas", "link", "keywords"]
   },
   divulgationBooks: {
     title: "Libros",
-    keys: ["year", "title", "publisher", "isbn", "image", "description", "link", "type"]
+    keys: ["year", "title", "type", "description", "isbn", "medium", "publisher", "location", "areas", "link", "image"]
   },
   researchReports: {
     title: "Informes de Investigación",
-    keys: ["year", "title", "institution", "description"]
+    keys: ["year", "title", "authors", "location", "areas", "link"]
   },
   artisticWorks: {
     title: "Obras Artísticas",
-    keys: ["year", "title", "type", "details", "link"]
+    keys: ["title", "discipline", "date", "link"] // validations handled separately
   },
   projects: {
     title: "Proyectos de Investigación",
-    keys: ["year", "title", "role", "status", "description", "code"]
+    keys: ["type", "start", "end", "title", "summary", "link"]
   },
   complementary: {
     title: "Cursos y Formación Complementaria",
-    keys: ["year", "title", "institution"]
+    keys: ["year", "title", "institution", "link"]
   }
 };
 
@@ -86,7 +87,29 @@ export default function AdminPanel() {
   const [expActivities, setExpActivities] = useState<any>({ admin: [], teaching: [], research: [] });
   const [newActivityText, setNewActivityText] = useState<{ [key: string]: string }>({ admin: "", teaching: "", research: "" });
 
+  // Custom validations state for artisticWorks section
+  const [artValidations, setArtValidations] = useState<any[]>([]);
+  const [newValEvent, setNewValEvent] = useState<string>("");
+  const [newValDate, setNewValDate] = useState<string>("");
+  const [newValInst, setNewValInst] = useState<string>("");
+
   const [showSaveSuccess, setShowSaveSuccess] = useState<boolean>(false);
+
+  // Sync bio_info fields from dataState to formState
+  useEffect(() => {
+    if (selectedSection === 'bio_info') {
+      const initialForm: any = {};
+      SECTIONS_CONFIG.bio_info.keys.forEach(k => {
+        if (k.startsWith('social_')) {
+          const socialKey = k.replace('social_', '');
+          initialForm[k] = dataState.social?.[socialKey] || '';
+        } else {
+          initialForm[k] = dataState[k] || '';
+        }
+      });
+      setFormState(initialForm);
+    }
+  }, [selectedSection, dataState]);
 
   // --- NUEVO: Estados de Autenticación y GitHub API ---
   const [token, setToken] = useState<string>(() => {
@@ -116,8 +139,15 @@ export default function AdminPanel() {
     // Comparar información biográfica
     const bioKeys = SECTIONS_CONFIG.bio_info.keys;
     bioKeys.forEach(k => {
-      if (PROFESSOR_DATA[k] !== dataState[k]) {
-        diffCount++;
+      if (k.startsWith('social_')) {
+        const socialKey = k.replace('social_', '');
+        if ((PROFESSOR_DATA.social?.[socialKey] || "") !== (dataState.social?.[socialKey] || "")) {
+          diffCount++;
+        }
+      } else {
+        if (PROFESSOR_DATA[k] !== dataState[k]) {
+          diffCount++;
+        }
       }
     });
     
