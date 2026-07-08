@@ -19,9 +19,16 @@ export default function DivulgationBooksSection() {
               <div className="space-y-6">
                 {PROFESSOR_DATA.divulgationBooks.map((book, idx) => (
                   <SectionCard key={idx} delay={idx * 0.06} className="p-4 md:p-6 flex flex-col md:flex-row gap-6">
-                    {book.image && (
-                      <div className="w-full md:w-1/4 flex-shrink-0">
-                        <img src={book.image} alt={book.title} className="w-full h-auto rounded-xl object-cover shadow-sm group-hover:scale-[1.02] transition-transform" referrerPolicy="no-referrer" />
+                    {(book.image || book.qr) && (
+                      <div className="w-full md:w-1/4 flex-shrink-0 flex flex-col gap-4 items-center">
+                        {book.image && (
+                          <img src={book.image} alt={book.title} className="w-full h-auto rounded-xl object-cover shadow-sm group-hover:scale-[1.02] transition-transform" referrerPolicy="no-referrer" />
+                        )}
+                        {book.qr && (
+                          <div className="w-32 h-32 md:w-40 md:h-40 bg-white p-2 rounded-xl shadow-md border border-indigo-100 flex items-center justify-center">
+                             <img src={book.qr} alt="QR Code" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+                          </div>
+                        )}
                       </div>
                     )}
                     <div className="flex-1 flex flex-col">
@@ -48,18 +55,11 @@ export default function DivulgationBooksSection() {
                           {book.areas && book.areas !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Áreas:</span> {book.areas}</p>}
                         </div>
                       </div>
-                      {(book.link || book.qr) && (
+                      {book.link && (
                         <div className="mt-4 pt-4 border-t border-white/40 flex flex-wrap gap-4 items-center justify-between">
-                          {book.link && (
-                            <GlassLinkButton href={book.link}>
-                              Ver publicación <ExternalLink size={14} />
-                            </GlassLinkButton>
-                          )}
-                          {book.qr && (
-                            <div className="flex-shrink-0">
-                               <img src={book.qr} alt="QR Code" className="w-20 h-20 rounded-lg object-contain shadow-sm border border-white/50" referrerPolicy="no-referrer" />
-                            </div>
-                          )}
+                          <GlassLinkButton href={book.link}>
+                            Ver publicación <ExternalLink size={14} />
+                          </GlassLinkButton>
                         </div>
                       )}
                     </div>
