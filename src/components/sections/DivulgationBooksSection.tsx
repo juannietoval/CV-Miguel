@@ -1,5 +1,6 @@
 import { Book, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
+import { SectionCard, GlassLinkButton, GlassBadge } from '../ui/SectionCard';
 
 
 
@@ -17,7 +18,7 @@ export default function DivulgationBooksSection() {
             <div className="expandable-content">
               <div className="space-y-6">
                 {PROFESSOR_DATA.divulgationBooks.map((book, idx) => (
-                  <div key={idx} className="p-4 md:p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group flex flex-col md:flex-row gap-6">
+                  <SectionCard key={idx} delay={idx * 0.06} className="p-4 md:p-6 flex flex-col md:flex-row gap-6">
                     {book.image && (
                       <div className="w-full md:w-1/4 flex-shrink-0">
                         <img src={book.image} alt={book.title} className="w-full h-auto rounded-xl object-cover shadow-sm group-hover:scale-[1.02] transition-transform" referrerPolicy="no-referrer" />
@@ -25,9 +26,9 @@ export default function DivulgationBooksSection() {
                     )}
                     <div className="flex-1 flex flex-col">
                       <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                        <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
+                        <GlassBadge>
                           {book.type || 'Libro de Divulgación / Compilación'}
-                        </span>
+                        </GlassBadge>
                         <span className="text-xs font-bold text-gray-500">{book.year}</span>
                       </div>
                       <h3 className="font-semibold text-lg md:text-xl group-hover:text-indigo-800 transition-colors mb-4">
@@ -49,13 +50,13 @@ export default function DivulgationBooksSection() {
                       </div>
                       {book.link && (
                         <div className="mt-4 pt-4 border-t border-white/40">
-                          <a href={book.link} target="_blank" rel="noopener noreferrer" className="text-indigo-600 font-bold hover:text-indigo-800 text-sm flex items-center gap-2 transition-colors">
+                          <GlassLinkButton href={book.link}>
                             Ver publicación <ExternalLink size={14} />
-                          </a>
+                          </GlassLinkButton>
                         </div>
                       )}
                     </div>
-                  </div>
+                  </SectionCard>
                 ))}
               </div>
             </div>

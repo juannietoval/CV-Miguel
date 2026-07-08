@@ -1,5 +1,6 @@
 import { Briefcase, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
+import { SectionCard, GlassLinkButton, GlassBadge } from '../ui/SectionCard';
 
 
 
@@ -17,11 +18,11 @@ export default function ProjectsSection() {
             <div className="expandable-content">
               <div className="space-y-8">
                 {PROFESSOR_DATA.projects.map((project, idx) => (
-                  <div key={idx} className="p-4 md:p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group">
+                  <SectionCard key={idx} delay={idx * 0.06} className="p-4 md:p-6">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
-                      <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
+                      <GlassBadge>
                         {project.type}
-                      </span>
+                      </GlassBadge>
                       <span className="text-xs font-bold text-gray-500">
                         {project.start} — {project.end}
                       </span>
@@ -37,18 +38,13 @@ export default function ProjectsSection() {
                     </div>
                     {project.link && (
                       <div className="mt-4 flex justify-end">
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-850 rounded-xl text-xs md:text-sm font-semibold transition-all hover:scale-[1.02] active:scale-95 border border-indigo-200/30"
-                        >
+                        <GlassLinkButton href={project.link}>
                           <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4 text-indigo-650" />
                           Ver Proyecto
-                        </a>
+                        </GlassLinkButton>
                       </div>
                     )}
-                  </div>
+                  </SectionCard>
                 ))}
               </div>
             </div>

@@ -1,5 +1,6 @@
 import { Library, MapPin, Globe, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
+import { SectionCard, GlassLinkButton, GlassBadge } from '../ui/SectionCard';
 
 
 
@@ -17,16 +18,16 @@ export default function AudiovisualSection() {
             <div className="expandable-content">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {PROFESSOR_DATA.digitalContent.map((item, idx) => (
-                  <div key={idx} className="p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group flex flex-col">
+                  <SectionCard key={idx} delay={idx * 0.06} className="p-6 flex flex-col">
                     {item.image && (
                       <div className="w-full h-40 mb-4 overflow-hidden rounded-xl">
                         <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
                       </div>
                     )}
                     <div className="flex justify-between items-start mb-4">
-                      <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
+                      <GlassBadge>
                         {item.type || 'Cápsula de Video'}
-                      </span>
+                      </GlassBadge>
                       <span className="text-xs font-bold text-gray-500">{item.date !== 'N/A' ? item.date : ''}</span>
                     </div>
                     <h3 className="font-semibold text-lg group-hover:text-indigo-800 transition-colors mb-4 flex-grow">
@@ -55,13 +56,13 @@ export default function AudiovisualSection() {
                           href={item.link} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="w-full py-2 rounded-xl bg-indigo-600 text-white text-center text-sm font-bold hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2 mt-4"
+                          className="w-full py-2 rounded-xl bg-indigo-600 text-white text-center text-sm font-bold hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2 mt-4 shadow-[0_2px_10px_rgba(79,70,229,0.3)] hover:shadow-[0_4px_15px_rgba(79,70,229,0.4)]"
                         >
                           Ver Producción <ExternalLink size={14} />
                         </a>
                       )}
                     </div>
-                  </div>
+                  </SectionCard>
                 ))}
               </div>
             </div>

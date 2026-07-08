@@ -1,5 +1,6 @@
 import { Globe, MapPin, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
+import { SectionCard, GlassLinkButton, GlassBadge } from '../ui/SectionCard';
 
 
 
@@ -17,12 +18,12 @@ export default function NetworksSection() {
                 <div className="expandable-content">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {PROFESSOR_DATA.networks.map((network, idx) => (
-                      <div key={idx} className="p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group flex flex-col justify-between">
+                      <SectionCard key={idx} delay={idx * 0.06} className="p-6 flex flex-col justify-between">
                         <div>
                           <div className="flex justify-between items-start mb-4">
-                            <span className={`text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded ${network.type === 'Real' ? 'text-indigo-600 bg-indigo-50' : 'text-purple-600 bg-purple-50'}`}>
+                            <GlassBadge color={network.type === 'Real' ? 'indigo' : 'pink'}>
                               Red {network.type}
-                            </span>
+                            </GlassBadge>
                             <span className="text-xs font-bold text-gray-500">{network.date}</span>
                           </div>
                           <h3 className="font-semibold text-lg group-hover:text-indigo-800 transition-colors mb-4">
@@ -35,18 +36,13 @@ export default function NetworksSection() {
                         </div>
                         {network.link && (
                           <div className="mt-4 flex justify-end">
-                            <a
-                              href={network.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-850 rounded-xl text-xs font-semibold transition-all hover:scale-[1.02] active:scale-95 border border-indigo-200/30"
-                            >
+                            <GlassLinkButton href={network.link}>
                               <ExternalLink className="w-3.5 h-3.5 text-indigo-650" />
                               Ver Red
-                            </a>
+                            </GlassLinkButton>
                           </div>
                         )}
-                      </div>
+                      </SectionCard>
                     ))}
                   </div>
                 </div>

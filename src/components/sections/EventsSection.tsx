@@ -1,5 +1,6 @@
 import { Calendar, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
+import { SectionCard, GlassLinkButton, GlassBadge } from '../ui/SectionCard';
 
 
 
@@ -17,15 +18,15 @@ export default function EventsSection() {
                 <div className="expandable-content">
                   <div className="space-y-3 md:space-y-4">
                     {PROFESSOR_DATA.events.map((event, idx) => (
-                      <div key={idx} className="p-3 md:p-5 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-colors group">
+                      <SectionCard key={idx} delay={idx * 0.06} className="p-3 md:p-5">
                         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-3">
                           <div className="flex flex-wrap gap-2">
-                            <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
+                            <GlassBadge>
                               {event.type}
-                            </span>
-                            <span className="text-[10px] uppercase tracking-widest font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
+                            </GlassBadge>
+                            <GlassBadge color="blue">
                               {event.scope}
-                            </span>
+                            </GlassBadge>
                           </div>
                           <span className="text-xs font-bold text-gray-500">{event.date}</span>
                         </div>
@@ -47,18 +48,13 @@ export default function EventsSection() {
                         </div>
                         {event.link && (
                           <div className="mt-3 flex justify-end">
-                            <a
-                              href={event.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-850 rounded-xl text-xs font-semibold transition-all hover:scale-[1.02] active:scale-95 border border-indigo-200/30"
-                            >
+                            <GlassLinkButton href={event.link}>
                               <ExternalLink className="w-3 h-3 text-indigo-650" />
                               Ver Soporte
-                            </a>
+                            </GlassLinkButton>
                           </div>
                         )}
-                      </div>
+                      </SectionCard>
                     ))}
                   </div>
                 </div>

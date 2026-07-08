@@ -1,5 +1,6 @@
 import { Users, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { PROFESSOR_DATA } from '../../data/professorData';
+import { SectionCard, GlassLinkButton, GlassBadge } from '../ui/SectionCard';
 
 
 
@@ -17,15 +18,15 @@ export default function SocialImpactSection() {
             <div className="expandable-content">
               <div className="space-y-6">
                 {PROFESSOR_DATA.socialImpact.map((item, idx) => (
-                  <div key={idx} className="p-4 md:p-6 rounded-2xl bg-white/20 border border-white/30 hover:bg-white/40 transition-all group">
+                  <SectionCard key={idx} delay={idx * 0.06} className="p-4 md:p-6">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                       <div className="flex flex-wrap gap-2">
-                        <span className="text-[10px] uppercase tracking-widest font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
+                        <GlassBadge>
                           Apropiación Social del Conocimiento
-                        </span>
-                        <span className="text-[10px] uppercase tracking-widest font-bold text-pink-600 bg-pink-50 px-2 py-0.5 rounded">
+                        </GlassBadge>
+                        <GlassBadge color="pink">
                           Interés Social
-                        </span>
+                        </GlassBadge>
                       </div>
                       <span className="text-xs font-bold text-gray-500">{item.date}</span>
                     </div>
@@ -53,18 +54,13 @@ export default function SocialImpactSection() {
                     </div>
                     {item.link && (
                       <div className="mt-4 flex justify-end">
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-850 rounded-xl text-xs md:text-sm font-semibold transition-all hover:scale-[1.02] active:scale-95 border border-indigo-200/30"
-                        >
+                        <GlassLinkButton href={item.link}>
                           <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4 text-indigo-650" />
                           Ver Recurso
-                        </a>
+                        </GlassLinkButton>
                       </div>
                     )}
-                  </div>
+                  </SectionCard>
                 ))}
               </div>
             </div>
