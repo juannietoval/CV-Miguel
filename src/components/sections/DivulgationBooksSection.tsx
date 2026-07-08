@@ -48,11 +48,18 @@ export default function DivulgationBooksSection() {
                           {book.areas && book.areas !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Áreas:</span> {book.areas}</p>}
                         </div>
                       </div>
-                      {book.link && (
-                        <div className="mt-4 pt-4 border-t border-white/40">
-                          <GlassLinkButton href={book.link}>
-                            Ver publicación <ExternalLink size={14} />
-                          </GlassLinkButton>
+                      {(book.link || book.qr) && (
+                        <div className="mt-4 pt-4 border-t border-white/40 flex flex-wrap gap-4 items-center justify-between">
+                          {book.link && (
+                            <GlassLinkButton href={book.link}>
+                              Ver publicación <ExternalLink size={14} />
+                            </GlassLinkButton>
+                          )}
+                          {book.qr && (
+                            <div className="flex-shrink-0">
+                               <img src={book.qr} alt="QR Code" className="w-20 h-20 rounded-lg object-contain shadow-sm border border-white/50" />
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
