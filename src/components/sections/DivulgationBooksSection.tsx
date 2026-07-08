@@ -18,50 +18,52 @@ export default function DivulgationBooksSection() {
             <div className="expandable-content">
               <div className="space-y-6">
                 {PROFESSOR_DATA.divulgationBooks.map((book, idx) => (
-                  <SectionCard key={idx} delay={idx * 0.06} className="p-4 md:p-6 flex flex-col md:flex-row gap-6">
-                    {(book.image || book.qr) && (
-                      <div className="w-full md:w-1/4 flex-shrink-0 flex flex-col gap-4 items-center">
-                        {book.image && (
-                          <img src={book.image} alt={book.title} className="w-full h-auto rounded-xl object-cover shadow-sm group-hover:scale-[1.02] transition-transform" referrerPolicy="no-referrer" />
+                  <SectionCard key={idx} delay={idx * 0.06} className="p-4 md:p-6">
+                    <div className="flex flex-col md:flex-row gap-6">
+                      {(book.image || book.qr) && (
+                        <div className="w-full md:w-1/4 flex-shrink-0 flex flex-col gap-4 items-center">
+                          {book.image && (
+                            <img src={book.image} alt={book.title} className="w-full h-auto rounded-xl object-cover shadow-sm group-hover:scale-[1.02] transition-transform" referrerPolicy="no-referrer" />
+                          )}
+                          {book.qr && (
+                            <div className="w-32 h-32 md:w-40 md:h-40 bg-white p-2 rounded-xl shadow-md border border-indigo-100 flex items-center justify-center">
+                               <img src={book.qr} alt="QR Code" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+                            </div>
+                          )}
+                        </div>
+                      )}
+                      <div className="flex-1 flex flex-col">
+                        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
+                          <GlassBadge>
+                            {book.type || 'Libro de Divulgación / Compilación'}
+                          </GlassBadge>
+                          <span className="text-xs font-bold text-gray-500">{book.year}</span>
+                        </div>
+                        <h3 className="font-semibold text-lg md:text-xl group-hover:text-indigo-800 transition-colors mb-4">
+                          "{book.title}"
+                        </h3>
+                        {book.description && (
+                          <p className="text-sm text-gray-600 mb-4 line-clamp-3 md:line-clamp-none">{book.description}</p>
                         )}
-                        {book.qr && (
-                          <div className="w-32 h-32 md:w-40 md:h-40 bg-white p-2 rounded-xl shadow-md border border-indigo-100 flex items-center justify-center">
-                             <img src={book.qr} alt="QR Code" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base mt-auto">
+                          <div className="space-y-2">
+                            {book.isbn && book.isbn !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">ISBN:</span> {book.isbn}</p>}
+                            {book.medium && book.medium !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Medio:</span> {book.medium}</p>}
+                            {book.publisher && book.publisher !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Editorial:</span> {book.publisher}</p>}
+                          </div>
+                          <div className="space-y-2">
+                            {book.location && book.location !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Lugar:</span> {book.location}</p>}
+                            {book.areas && book.areas !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Áreas:</span> {book.areas}</p>}
+                          </div>
+                        </div>
+                        {book.link && (
+                          <div className="mt-4 pt-4 border-t border-white/40 flex flex-wrap gap-4 items-center justify-between">
+                            <GlassLinkButton href={book.link}>
+                              Ver publicación <ExternalLink size={14} />
+                            </GlassLinkButton>
                           </div>
                         )}
                       </div>
-                    )}
-                    <div className="flex-1 flex flex-col">
-                      <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                        <GlassBadge>
-                          {book.type || 'Libro de Divulgación / Compilación'}
-                        </GlassBadge>
-                        <span className="text-xs font-bold text-gray-500">{book.year}</span>
-                      </div>
-                      <h3 className="font-semibold text-lg md:text-xl group-hover:text-indigo-800 transition-colors mb-4">
-                        "{book.title}"
-                      </h3>
-                      {book.description && (
-                        <p className="text-sm text-gray-600 mb-4 line-clamp-3 md:line-clamp-none">{book.description}</p>
-                      )}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base mt-auto">
-                        <div className="space-y-2">
-                          {book.isbn && book.isbn !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">ISBN:</span> {book.isbn}</p>}
-                          {book.medium && book.medium !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Medio:</span> {book.medium}</p>}
-                          {book.publisher && book.publisher !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Editorial:</span> {book.publisher}</p>}
-                        </div>
-                        <div className="space-y-2">
-                          {book.location && book.location !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Lugar:</span> {book.location}</p>}
-                          {book.areas && book.areas !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Áreas:</span> {book.areas}</p>}
-                        </div>
-                      </div>
-                      {book.link && (
-                        <div className="mt-4 pt-4 border-t border-white/40 flex flex-wrap gap-4 items-center justify-between">
-                          <GlassLinkButton href={book.link}>
-                            Ver publicación <ExternalLink size={14} />
-                          </GlassLinkButton>
-                        </div>
-                      )}
                     </div>
                   </SectionCard>
                 ))}
