@@ -57,7 +57,7 @@ export default function DivulgationBooksSection() {
                           )}
                           {book.qr && (
                             <div className="flex-shrink-0">
-                               <img src={book.qr} alt="QR Code" className="w-20 h-20 rounded-lg object-contain shadow-sm border border-white/50" />
+                               <img src={book.qr} alt="QR Code" className="w-20 h-20 rounded-lg object-contain shadow-sm border border-white/50" referrerPolicy="no-referrer" />
                             </div>
                           )}
                         </div>
