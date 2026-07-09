@@ -865,13 +865,44 @@ export default function AdminPanel() {
                             placeholder={`Escribe aquí el campo ${key}...`}
                           />
                         ) : (
-                          <input
-                            type="text"
-                            value={formState[key] || ""}
-                            onChange={(e) => handleInputChange(key, e.target.value)}
-                            className="px-4 py-3 rounded-2xl border border-slate-200 focus:border-indigo-400 focus:outline-none bg-white/50 text-slate-800 text-sm font-medium transition-all"
-                            placeholder={`Escribe aquí el campo ${key}...`}
-                          />
+                          <div className="flex flex-col gap-2">
+                            <input
+                              type="text"
+                              value={formState[key] || ""}
+                              onChange={(e) => handleInputChange(key, e.target.value)}
+                              className="px-4 py-3 rounded-2xl border border-slate-200 focus:border-indigo-400 focus:outline-none bg-white/50 text-slate-800 text-sm font-medium transition-all"
+                              placeholder={`Escribe aquí el campo ${key}...`}
+                            />
+                            {(key === 'image' || key === 'profileImage' || key === 'qr') && formState[key] && (
+                              <div className="mt-1 flex flex-col items-start gap-1">
+                                <span className="text-[10px] font-bold text-slate-400 uppercase">Vista Previa:</span>
+                                <div className="p-2 bg-white/80 border border-slate-200 rounded-xl inline-block max-w-full overflow-hidden">
+                                  <img 
+                                    src={formState[key]} 
+                                    alt="Preview" 
+                                    className="max-h-32 object-contain rounded-lg"
+                                    onError={(e) => {
+                                      const target = e.currentTarget;
+                                      target.style.display = 'none';
+                                      if (target.nextElementSibling) {
+                                        (target.nextElementSibling as HTMLElement).style.display = 'flex';
+                                      }
+                                    }}
+                                    onLoad={(e) => {
+                                      const target = e.currentTarget;
+                                      target.style.display = 'block';
+                                      if (target.nextElementSibling) {
+                                        (target.nextElementSibling as HTMLElement).style.display = 'none';
+                                      }
+                                    }}
+                                  />
+                                  <div className="hidden items-center gap-1.5 text-xs text-rose-500 font-medium p-1">
+                                    <AlertTriangle className="w-3.5 h-3.5" /> Enlace de imagen no válido o roto
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                          </div>
                         )}
                       </div>
                     ))}
