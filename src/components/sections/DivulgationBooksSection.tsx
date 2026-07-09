@@ -20,16 +20,9 @@ export default function DivulgationBooksSection() {
                 {PROFESSOR_DATA.divulgationBooks.map((book, idx) => (
                   <SectionCard key={idx} delay={idx * 0.06} className="p-4 md:p-6">
                     <div className="flex flex-col md:flex-row gap-6">
-                      {(book.image || book.qr) && (
-                        <div className="w-full md:w-1/4 flex-shrink-0 flex flex-col gap-4 items-center">
-                          {book.image && (
-                            <img src={book.image} alt={book.title} className="w-full h-auto rounded-xl object-cover shadow-sm group-hover:scale-[1.02] transition-transform" referrerPolicy="no-referrer" />
-                          )}
-                          {book.qr && (
-                            <div className="w-32 h-32 md:w-40 md:h-40 bg-white p-2 rounded-xl shadow-md border border-indigo-100 flex items-center justify-center">
-                               <img src={book.qr} alt="QR Code" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
-                            </div>
-                          )}
+                      {book.image && (
+                        <div className="w-full md:w-1/4 flex-shrink-0 flex flex-col items-center">
+                          <img src={book.image} alt={book.title} className="w-full h-auto rounded-xl object-cover shadow-sm group-hover:scale-[1.02] transition-transform" referrerPolicy="no-referrer" />
                         </div>
                       )}
                       <div className="flex-1 flex flex-col">
@@ -56,11 +49,22 @@ export default function DivulgationBooksSection() {
                             {book.areas && book.areas !== 'N/A' && <p className="text-gray-600"><span className="font-bold text-indigo-900/70">Áreas:</span> {book.areas}</p>}
                           </div>
                         </div>
-                        {book.link && (
-                          <div className="mt-4 pt-4 border-t border-white/40 flex flex-wrap gap-4 items-center justify-between">
-                            <GlassLinkButton href={book.link}>
-                              Ver publicación <ExternalLink size={14} />
-                            </GlassLinkButton>
+                        {(book.link || book.qr) && (
+                          <div className="mt-4 pt-4 border-t border-white/40 flex flex-wrap gap-4 items-end justify-between">
+                            {book.link ? (
+                              <GlassLinkButton href={book.link}>
+                                Ver publicación <ExternalLink size={14} />
+                              </GlassLinkButton>
+                            ) : <div />}
+                            
+                            {book.qr && (
+                              <div className="flex flex-col items-end gap-1.5 group/qr">
+                                <span className="text-[10px] font-bold text-indigo-400/80 uppercase tracking-widest opacity-0 group-hover/qr:opacity-100 transition-opacity hidden md:block">Escanear QR</span>
+                                <div className="w-28 h-28 md:w-32 md:h-32 bg-white p-2 rounded-xl shadow-sm border border-indigo-100 flex items-center justify-center group-hover/qr:scale-110 transition-transform origin-bottom-right z-10 cursor-crosshair">
+                                   <img src={book.qr} alt="QR Code" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+                                </div>
+                              </div>
+                            )}
                           </div>
                         )}
                       </div>
