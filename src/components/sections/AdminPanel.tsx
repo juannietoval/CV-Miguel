@@ -380,9 +380,32 @@ export default function AdminPanel() {
     }
   };
 
+  // Format Google Drive image URLs to direct links
+  const formatImageUrl = (url: string) => {
+    if (!url) return url;
+    
+    // Match drive.google.com/file/d/FILE_ID/...
+    const fileIdMatch = url.match(/drive\.google\.com\/file\/d\/([-\w]+)/);
+    if (fileIdMatch && fileIdMatch[1]) {
+      return `https://drive.google.com/uc?export=view&id=${fileIdMatch[1]}`;
+    }
+    
+    // Match drive.google.com/open?id=FILE_ID
+    const openIdMatch = url.match(/drive\.google\.com\/open\?id=([-\w]+)/);
+    if (openIdMatch && openIdMatch[1]) {
+      return `https://drive.google.com/uc?export=view&id=${openIdMatch[1]}`;
+    }
+
+    return url;
+  };
+
   // Handle generic input change
   const handleInputChange = (key: string, value: string) => {
-    setFormState((prev: any) => ({ ...prev, [key]: value }));
+    let finalValue = value;
+    if (key === 'image' || key === 'profileImage' || key === 'qr') {
+      finalValue = formatImageUrl(value);
+    }
+    setFormState((prev: any) => ({ ...prev, [key]: finalValue }));
   };
 
   // Handle nested lists for experience activities
