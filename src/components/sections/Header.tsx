@@ -173,7 +173,8 @@ export default function Header() {
     {
       id: 'perfil', title: 'Perfil', items: [
         { to: '/cv', icon: GraduationCap, label: 'Formación' },
-        { to: '/experience', icon: Briefcase, label: 'Experiencia' }
+        { to: '/experience', icon: Briefcase, label: 'Experiencia' },
+        { to: '/complementary', icon: BookOpen, label: 'Cursos' }
       ]
     },
     {
@@ -188,7 +189,9 @@ export default function Header() {
       id: 'produccion', title: 'Producción', items: [
         { to: '/articles', icon: FileText, label: 'Artículos' },
         { to: '/divulgation', icon: BookOpen, label: 'Divulgación' },
-        { to: '/reports', icon: Library, label: 'Informes' }
+        { to: '/divulgation-books', icon: Book, label: 'Libros' },
+        { to: '/reports', icon: Library, label: 'Informes' },
+        { to: '/artistic', icon: Briefcase, label: 'Obras' }
       ]
     },
     {
