@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://juannietoval.github.io/CV-Miguel/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/bio</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/cv</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/experience</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/tutoring</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/jury</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/events</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/networks</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/social</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/audiovisual</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/articles</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/divulgation</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/divulgation-books</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/reports</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/artistic</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/projects</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://juannietoval.github.io/CV-Miguel/#/complementary</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url>
+    <loc>https://juannietoval.github.io/CV-Miguel/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
 </urlset>
