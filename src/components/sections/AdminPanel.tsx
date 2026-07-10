@@ -73,7 +73,7 @@ const SECTIONS_CONFIG: { [key: string]: { title: string; keys: string[] } } = {
   },
   complementary: {
     title: "Cursos y Formación Complementaria",
-    keys: ["year", "title", "institution", "link"]
+    keys: ["year", "title", "institution", "participation", "duration", "purpose", "location", "keywords", "areas", "sectors", "link"]
   }
 };
 

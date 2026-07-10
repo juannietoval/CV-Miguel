@@ -36,6 +36,66 @@
   ],
   "complementary": [
     {
+      "year": "2024",
+      "title": "Seminario doctoral: Elaboración de documentos científicos",
+      "institution": "Universidad de Panamá",
+      "purpose": "Dictar seminario de Elaboración de Documentos Científicos, del doctorado en Educación Internacional",
+      "location": "Panamá",
+      "participation": "Docente",
+      "duration": "4 semanas",
+      "keywords": "Redacción académica, Alfabetización, Apropiación social del conocimiento, Educación, Comunicación",
+      "areas": "Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía)",
+      "sectors": "Educación - Educación superior"
+    },
+    {
+      "year": "2024",
+      "title": "Seminario doctoral: Investigación educativa II",
+      "institution": "Universidad de Panamá",
+      "purpose": "Dictar seminario de Investigación Educativa II, del doctorado en Educación Internacional",
+      "location": "Panamá",
+      "participation": "Docente",
+      "duration": "4 semanas",
+      "keywords": "Educación, Metodología de la investigación",
+      "areas": "Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía)",
+      "sectors": "Educación - Educación superior"
+    },
+    {
+      "year": "2023",
+      "title": "Seminario doctoral: Investigación Educativa I",
+      "institution": "Universidad de Panamá",
+      "purpose": "Dictar seminario de Investigación Educativa I, del doctorado en Educación Internacional",
+      "location": "Panamá",
+      "participation": "Docente",
+      "duration": "4 semanas",
+      "keywords": "Educación, Metodología de la investigación",
+      "areas": "Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía)",
+      "sectors": "Educación - Educación superior"
+    },
+    {
+      "year": "2023",
+      "title": "Seminario doctoral: Epistemología y Tendencias Educativa Contemporáneas",
+      "institution": "Universidad de Panamá",
+      "purpose": "Dictar seminario de Epistemología y Tendencias Contemporáneas, del doctorado en Educación Internacional",
+      "location": "Panamá",
+      "participation": "Docente",
+      "duration": "4 semanas",
+      "keywords": "Educación, Alfabetización, Filosofía de la educación, Metodología de la investigación, Formación, TIC",
+      "areas": "Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía)",
+      "sectors": "Educación - Educación superior"
+    },
+    {
+      "year": "2021",
+      "title": "Seminario maestría: Investigación I",
+      "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
+      "purpose": "Dictar seminario de Investigación I, de la maestría en Comunicación Educativa en convenio con el Politécnico Jaime Isaza Cadavid. - Medellín",
+      "location": "Colombia",
+      "participation": "Docente",
+      "duration": "4 semanas",
+      "keywords": "Educación, Formación, Metodología de la investigación",
+      "areas": "Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía)",
+      "sectors": "Educación - Educación superior"
+    },
+    {
       "year": "2021",
       "title": "Currículo del Editor II",
       "institution": "MinCiencias"

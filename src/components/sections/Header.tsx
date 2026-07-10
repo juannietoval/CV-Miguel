@@ -66,62 +66,94 @@ export default function Header() {
       return;
     }
 
-    const normalizeText = (text) => {
+    const normalizeText = (text: any): string => {
       if (typeof text !== 'string') return '';
       return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     };
 
-    const queryTokens = normalizeText(searchQuery).split(' ').filter(Boolean);
-    const results = [];
+    // Deep text extraction for nested objects/arrays
+    const extractAllText = (obj: any): string => {
+      if (!obj) return '';
+      if (typeof obj === 'string') return obj;
+      if (typeof obj === 'number') return String(obj);
+      if (Array.isArray(obj)) {
+        return obj.map(extractAllText).join(' ');
+      }
+      if (typeof obj === 'object') {
+        const textParts = Object.entries(obj)
+          .filter(([key]) => !['id', 'image', 'link', 'qr'].includes(key))
+          .map(([_, val]) => extractAllText(val));
+        return textParts.join(' ');
+      }
+      return '';
+    };
 
-    const searchInData = (data, sectionId, sectionName) => {
+    const queryTokens = normalizeText(searchQuery).split(' ').filter(Boolean);
+    const results: any[] = [];
+
+    const searchInData = (data: any[], sectionId: string, sectionName: string) => {
       if (!data) return;
       data.forEach((item) => {
         let score = 0;
-        const titleStr = String(item.title || item.role || item.name || item.institution || "");
+        const titleStr = String(item.title || item.role || item.name || item.institution || item.type || "Sin título");
         const titleNorm = normalizeText(titleStr);
-        const valuesToSearch = Object.entries(item)
-          .filter(([key, val]) => key !== 'id' && key !== 'image' && key !== 'link' && typeof val === 'string')
-          .map(([key, val]) => val);
-        const contentNorm = normalizeText(valuesToSearch.join(' '));
+        const contentNorm = normalizeText(extractAllText(item));
 
-        let allTokensMatched = true;
+        let tokensMatched = 0;
         queryTokens.forEach(token => {
-          let tokenMatched = false;
-          if (titleNorm.includes(token)) { score += 10; tokenMatched = true; }
-          else if (contentNorm.includes(token)) { score += 2; tokenMatched = true; }
-          if (!tokenMatched) allTokensMatched = false;
+          if (titleNorm.includes(token)) {
+            score += 10;
+            tokensMatched++;
+          } else if (contentNorm.includes(token)) {
+            score += 3;
+            tokensMatched++;
+          }
         });
 
-        if (score > 0 && allTokensMatched) {
+        const matchRatio = tokensMatched / queryTokens.length;
+
+        // Relaxed search condition: at least half of the words must match or score is high
+        if (score > 0 && matchRatio >= 0.5) {
+          
+          let details = item.summary || item.purpose || item.description || "";
+          if (!details && item.keywords) details = `Palabras clave: ${item.keywords}`;
+          if (!details && item.activities) {
+            // For experience activities
+            details = extractAllText(item.activities).substring(0, 100) + "...";
+          }
+
           results.push({
-            score, id: item.id || Math.random(),
-            title: titleStr || "Sin título",
-            subtitle: item.institution || item.type || item.year || item.date || item.publisher || item.journal || "",
-            sectionId, sectionName, originalItem: item
+            score: score * matchRatio, // Boost items that matched more query tokens
+            id: item.id || Math.random(),
+            title: titleStr,
+            subtitle: item.institution || item.type || item.year || item.date || item.publisher || item.journal || item.location || "",
+            details: details,
+            sectionId, 
+            sectionName, 
+            originalItem: item
           });
         }
       });
     };
 
-    searchInData(PROFESSOR_DATA.cv, 'cv', 'Formación');
-    searchInData(PROFESSOR_DATA.experience, 'experience', 'Experiencia');
-    searchInData(PROFESSOR_DATA.tutoring, 'tutoring', 'Tutorías');
-    searchInData(PROFESSOR_DATA.jury, 'jury', 'Jurados');
-    searchInData(PROFESSOR_DATA.events, 'events', 'Eventos');
-    searchInData(PROFESSOR_DATA.networks, 'networks', 'Redes');
+    searchInData(PROFESSOR_DATA.cv, 'cv', 'Formación Académica');
+    searchInData(PROFESSOR_DATA.experience, 'experience', 'Experiencia Profesional');
+    searchInData(PROFESSOR_DATA.tutoring, 'tutoring', 'Tutorías de Tesis');
+    searchInData(PROFESSOR_DATA.jury, 'jury', 'Jurados de Tesis');
+    searchInData(PROFESSOR_DATA.events, 'events', 'Eventos y Congresos');
+    searchInData(PROFESSOR_DATA.networks, 'networks', 'Redes de Investigación');
     searchInData(PROFESSOR_DATA.socialImpact, 'social', 'Impacto Social');
-    searchInData(PROFESSOR_DATA.digitalContent, 'audiovisual', 'Audiovisual');
-    searchInData(PROFESSOR_DATA.articles, 'articles', 'Artículos');
-    searchInData(PROFESSOR_DATA.nonScientificArticles, 'divulgation', 'Divulgación');
+    searchInData(PROFESSOR_DATA.digitalContent, 'audiovisual', 'Producción Audiovisual');
+    searchInData(PROFESSOR_DATA.articles, 'articles', 'Artículos Científicos');
+    searchInData(PROFESSOR_DATA.nonScientificArticles, 'divulgation', 'Artículos de Divulgación');
     searchInData(PROFESSOR_DATA.divulgationBooks, 'divulgation-books', 'Libros');
-    searchInData(PROFESSOR_DATA.researchReports, 'reports', 'Informes');
-    searchInData(PROFESSOR_DATA.artisticWorks, 'artistic', 'Obras');
-    searchInData(PROFESSOR_DATA.projects, 'projects', 'Proyectos');
-    searchInData(PROFESSOR_DATA.complementary, 'complementary', 'Cursos');
+    searchInData(PROFESSOR_DATA.researchReports, 'reports', 'Informes de Investigación');
+    searchInData(PROFESSOR_DATA.artisticWorks, 'artistic', 'Obras Artísticas');
+    searchInData(PROFESSOR_DATA.projects, 'projects', 'Proyectos de Investigación');
+    searchInData(PROFESSOR_DATA.complementary, 'complementary', 'Cursos y Form. Complementaria');
 
     results.sort((a, b) => b.score - a.score);
-    setSearchResults(results.slice(0, 10));
+    setSearchResults(results.slice(0, 20)); // Limit to 20 to allow rich groupings
   }, [searchQuery]);
 
   // Atajo de teclado
@@ -372,21 +404,36 @@ export default function Header() {
 
                 <div className="max-h-[60vh] overflow-y-auto p-4">
                   {searchResults.length > 0 ? (
-                    <div className="space-y-2">
-                      {searchResults.map((result, idx) => (
-                        <Link
-                          key={idx}
-                          to={`/${result.sectionId}`}
-                          onClick={() => { setIsSearchOpen(false); navigate(`/${result.sectionId}`); }}
-                          className="flex flex-col p-4 hover:bg-white/30 rounded-2xl transition-all border border-transparent hover:border-white/30 group"
-                        >
-                          <div className="flex justify-between items-start mb-1">
-                            <span className="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">{result.sectionName}</span>
-                            <ExternalLink size={14} className="text-gray-300 group-hover:text-indigo-400 transition-colors" />
+                    <div className="space-y-6">
+                      {Object.entries(
+                        searchResults.reduce((acc, result) => {
+                          if (!acc[result.sectionName]) acc[result.sectionName] = [];
+                          acc[result.sectionName].push(result);
+                          return acc;
+                        }, {} as Record<string, any[]>)
+                      ).map(([sectionName, items]: [string, any], sectionIdx) => (
+                        <div key={sectionIdx}>
+                          <h3 className="text-[11px] font-black text-indigo-400 uppercase tracking-[0.2em] mb-3 px-1 border-b border-white/10 pb-2">
+                            {sectionName}
+                          </h3>
+                          <div className="grid grid-cols-1 gap-2">
+                            {items.map((result: any, idx: number) => (
+                              <Link
+                                key={idx}
+                                to={`/${result.sectionId}`}
+                                onClick={() => { setIsSearchOpen(false); navigate(`/${result.sectionId}`); }}
+                                className="flex flex-col p-4 bg-white/5 hover:bg-white/30 rounded-xl transition-all border border-transparent hover:border-white/30 group"
+                              >
+                                <div className="flex justify-between items-start">
+                                  <h4 className="font-bold text-gray-800 text-sm group-hover:text-indigo-900 transition-colors leading-tight">{result.title}</h4>
+                                  <ExternalLink size={14} className="text-gray-400 group-hover:text-indigo-500 transition-colors shrink-0 ml-3" />
+                                </div>
+                                {result.subtitle && <p className="text-[11px] font-bold text-indigo-500/80 uppercase mt-1.5">{result.subtitle}</p>}
+                                {result.details && <p className="text-[11px] text-gray-600 mt-2 line-clamp-2 italic leading-relaxed">{result.details}</p>}
+                              </Link>
+                            ))}
                           </div>
-                          <h4 className="font-bold text-gray-800 group-hover:text-indigo-900 transition-colors line-clamp-1">{result.title}</h4>
-                          <p className="text-sm text-gray-500 line-clamp-2">{result.subtitle}</p>
-                        </Link>
+                        </div>
                       ))}
                     </div>
                   ) : searchQuery ? (
