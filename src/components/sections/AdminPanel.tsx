@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { 
   Download, Plus, Trash2, Edit3, ArrowUp, ArrowDown, Save, 
   Settings, Database, CheckCircle, HelpCircle, FileText, ArrowRight, ArrowLeft,
-  Lock, Eye, EyeOff, LogOut, ExternalLink, Loader2, AlertTriangle, Shield, Check, X, RefreshCw
+  Lock, Eye, EyeOff, LogOut, ExternalLink, Loader2, AlertTriangle, Shield, Check, X, RefreshCw,
+  ArrowUpDown
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PROFESSOR_DATA } from '../../data/professorData';
@@ -82,6 +83,7 @@ export default function AdminPanel() {
   const [editingItemIdx, setEditingItemIdx] = useState<number | null>(null);
   const [isAdding, setIsAdding] = useState<boolean>(false);
   const [formState, setFormState] = useState<any>({});
+  const [activeSortType, setActiveSortType] = useState<string>('none');
   
   // Custom activities state for experience section
   const [expActivities, setExpActivities] = useState<any>({ admin: [], teaching: [], research: [] });
@@ -350,6 +352,7 @@ export default function AdminPanel() {
     setEditingItemIdx(null);
     setIsAdding(false);
     setFormState({});
+    setActiveSortType('none');
   };
 
   // Start adding new item
@@ -488,6 +491,39 @@ export default function AdminPanel() {
       ...prev,
       [selectedSection]: currentList
     }));
+  };
+
+  // Sort helpers
+  const extractYearFromItem = (item: any): number => {
+    const raw = item.year || item.date || item.start || item.period || '';
+    const match = String(raw).match(/\d{4}/);
+    return match ? parseInt(match[0]) : 0;
+  };
+
+  const getItemSortName = (item: any): string => {
+    return (item.title || item.name || item.role || item.institution || '').toLowerCase();
+  };
+
+  const sortItems = (type: 'year-asc' | 'year-desc' | 'alpha-asc' | 'alpha-desc') => {
+    if (selectedSection === 'bio_info') return;
+    const currentList = [...(dataState[selectedSection] || [])];
+
+    if (type === 'year-asc' || type === 'year-desc') {
+      currentList.sort((a: any, b: any) => {
+        const yearA = extractYearFromItem(a);
+        const yearB = extractYearFromItem(b);
+        return type === 'year-asc' ? yearA - yearB : yearB - yearA;
+      });
+    } else {
+      currentList.sort((a: any, b: any) => {
+        const nameA = getItemSortName(a);
+        const nameB = getItemSortName(b);
+        return type === 'alpha-asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+      });
+    }
+
+    setDataState((prev: any) => ({ ...prev, [selectedSection]: currentList }));
+    setActiveSortType(type);
   };
 
   // Download data as JSON file (Manual Fallback)
@@ -1009,17 +1045,46 @@ export default function AdminPanel() {
                   exit={{ opacity: 0, x: 20 }}
                   className="glass rounded-3xl p-6 border-white/60 bg-white/70 shadow-lg"
                 >
-                  <div className="flex justify-between items-center mb-6">
-                    <h3 className="serif text-xl font-bold text-slate-800">
-                      {SECTIONS_CONFIG[selectedSection].title}
-                    </h3>
-                    <button
-                      onClick={startAdd}
-                      className="flex items-center gap-1 px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 rounded-xl font-bold text-xs transition-colors group"
-                    >
-                      <Plus className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                      Añadir Elemento
-                    </button>
+                  <div className="flex flex-col gap-4 mb-6">
+                    <div className="flex justify-between items-center">
+                      <h3 className="serif text-xl font-bold text-slate-800">
+                        {SECTIONS_CONFIG[selectedSection].title}
+                      </h3>
+                      <button
+                        onClick={startAdd}
+                        className="flex items-center gap-1 px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 rounded-xl font-bold text-xs transition-colors group"
+                      >
+                        <Plus className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                        Añadir Elemento
+                      </button>
+                    </div>
+
+                    {/* Sort buttons */}
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mr-1">Ordenar por:</span>
+                      <button
+                        onClick={() => sortItems(activeSortType === 'year-desc' ? 'year-asc' : 'year-desc')}
+                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                          activeSortType.startsWith('year')
+                            ? 'bg-indigo-100 text-indigo-700 border border-indigo-200 shadow-sm'
+                            : 'bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200/50'
+                        }`}
+                      >
+                        <ArrowUpDown className="w-3.5 h-3.5" />
+                        Año {activeSortType === 'year-asc' ? '↑ Antiguo' : activeSortType === 'year-desc' ? '↓ Reciente' : ''}
+                      </button>
+                      <button
+                        onClick={() => sortItems(activeSortType === 'alpha-asc' ? 'alpha-desc' : 'alpha-asc')}
+                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                          activeSortType.startsWith('alpha')
+                            ? 'bg-indigo-100 text-indigo-700 border border-indigo-200 shadow-sm'
+                            : 'bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200/50'
+                        }`}
+                      >
+                        <ArrowUpDown className="w-3.5 h-3.5" />
+                        Nombre {activeSortType === 'alpha-asc' ? 'A→Z' : activeSortType === 'alpha-desc' ? 'Z→A' : ''}
+                      </button>
+                    </div>
                   </div>
 
                   {/* Listado */}
