@@ -194,29 +194,20 @@
     },
     {
       "type": "Trabajo de grado de maestría",
-      "title": "ENSEÑANZA DE LA FÍSICA BASADA EN LOS FACTORES ANTROPOLÓGICOS Y EL CONTEXTO SOCIAL",
-      "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
-      "status": "Concluida",
-      "year": "2022",
-      "student": "Luis Enrique Castañeda González",
-      "role": "Tutor principal"
-    },
-    {
-      "type": "Trabajo de grado de maestría",
-      "title": "Imaginarios alrededor de las rutinas de entretenimiento en los jóvenes de los grados novenos, décimos y onces de la Institución Educativa Román María Valencia de Calarcá - Quindío a partir de la pandemia COVID-19",
-      "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
-      "status": "Concluida",
-      "year": "2021",
-      "student": "Mario Alexander Arenas Agudelo",
-      "role": "Tutor principal"
-    },
-    {
-      "type": "Trabajo de grado de maestría",
       "title": "El uso de la Tecnología en el proceso de enseñanza - aprendizaje de la física en las áreas rurales, como estrategias aplicables en los colegios públicos del Distrito de los Pozos - Herrera en la República de Panamá",
       "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
       "status": "Concluida",
       "year": "2024",
       "student": "Lourdes Virginia González",
+      "role": "Tutor principal"
+    },
+    {
+      "type": "Trabajo de grado de maestría",
+      "title": "ENSEÑANZA DE LA FÍSICA BASADA EN LOS FACTORES ANTROPOLÓGICOS Y EL CONTEXTO SOCIAL",
+      "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
+      "status": "Concluida",
+      "year": "2022",
+      "student": "Luis Enrique Castañeda González",
       "role": "Tutor principal"
     },
     {
@@ -230,11 +221,11 @@
     },
     {
       "type": "Trabajo de grado de maestría",
-      "title": "Identificación De Las Nuevas Construcciones Simbólicas Del Sujeto En La Relación Sugar Daddy – Sugar Baby En La Producción De La Red Social Twitter",
+      "title": "Imaginarios alrededor de las rutinas de entretenimiento en los jóvenes de los grados novenos, décimos y onces de la Institución Educativa Román María Valencia de Calarcá - Quindío a partir de la pandemia COVID-19",
       "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
       "status": "Concluida",
-      "year": "2020",
-      "student": "JULIAN DAVID NOGOA ARRUBLA",
+      "year": "2021",
+      "student": "Mario Alexander Arenas Agudelo",
       "role": "Tutor principal"
     },
     {
@@ -274,24 +265,6 @@
       "role": "Tutor principal"
     },
     {
-      "type": "Trabajo de grado de maestría",
-      "title": "Comunicación y educación en procesos comunitarios",
-      "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
-      "status": "En curso",
-      "year": "2018",
-      "student": "Felipe Gallego",
-      "role": "Tutor principal"
-    },
-    {
-      "type": "Trabajo de grado de pregrado",
-      "title": "ALFABETIZACIÓN DIGITAL EN ADULTOS MAYORES DEL GRUPO DE LA TERCERA EDAD DEL BARRIO PARQUE INDUSTRIAL DE PEREIRA, DESDE LA PERSPECTIVA DEL APRENDIZAJE SIGNIFICATIVO",
-      "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
-      "status": "Concluida",
-      "year": "2015",
-      "student": "Diana Cristina Ospina Valencia",
-      "role": "Tutor principal"
-    },
-    {
       "type": "Trabajo de grado de pregrado",
       "title": "Los emojis, el lenguaje emergente de la cibercultura",
       "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
@@ -301,21 +274,12 @@
       "role": "Tutor principal"
     },
     {
-      "type": "Trabajo de grado de pregrado",
-      "title": "Realidad aumentada como herramienta que potencialice el aprendizaje significativo en geometría básica del grado tercero de la Institución Educativa Instituto Estrada",
+      "type": "Trabajo de grado de maestría",
+      "title": "Identificación De Las Nuevas Construcciones Simbólicas Del Sujeto En La Relación Sugar Daddy – Sugar Baby En La Producción De La Red Social Twitter",
       "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
       "status": "Concluida",
-      "year": "2016",
-      "student": "Gómez Carmona, Jorge Humberto; López Quintero, Daniel",
-      "role": "Tutor principal"
-    },
-    {
-      "type": "Trabajo de grado de pregrado",
-      "title": "LA ACTITUD CRÍTICA EN EL PROCESO DE ALFABETIZACIÓN MEDIÁTICA DESARROLLADA EN LA ÁREA DE INFORMÁTICA EN ESTUDIANTES DE GRADO 11",
-      "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
-      "status": "Concluida",
-      "year": "2016",
-      "student": "STEFANY CASTILLO JARAMILLO, PAULA GARCIA HERRERA, DANIELA MACHADO MAYA",
+      "year": "2020",
+      "student": "JULIAN DAVID NOGOA ARRUBLA",
       "role": "Tutor principal"
     },
     {
@@ -391,6 +355,15 @@
       "role": "Tutor principal"
     },
     {
+      "type": "Trabajo de grado de maestría",
+      "title": "Comunicación y educación en procesos comunitarios",
+      "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
+      "status": "En curso",
+      "year": "2018",
+      "student": "Felipe Gallego",
+      "role": "Tutor principal"
+    },
+    {
       "type": "Trabajo de grado de pregrado",
       "title": "Diseño de una propuesta didáctica para la implementación de la fotografía en el aula de clase en la asignatura de educación artística en estudiantes de 4° de primaria de la Institución Educativa Santa Sofía en el municipio de Dosquebradas",
       "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
@@ -401,11 +374,38 @@
     },
     {
       "type": "Trabajo de grado de pregrado",
+      "title": "Realidad aumentada como herramienta que potencialice el aprendizaje significativo en geometría básica del grado tercero de la Institución Educativa Instituto Estrada",
+      "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
+      "status": "Concluida",
+      "year": "2016",
+      "student": "Gómez Carmona, Jorge Humberto; López Quintero, Daniel",
+      "role": "Tutor principal"
+    },
+    {
+      "type": "Trabajo de grado de pregrado",
+      "title": "LA ACTITUD CRÍTICA EN EL PROCESO DE ALFABETIZACIÓN MEDIÁTICA DESARROLLADA EN LA ÁREA DE INFORMÁTICA EN ESTUDIANTES DE GRADO 11",
+      "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
+      "status": "Concluida",
+      "year": "2016",
+      "student": "STEFANY CASTILLO JARAMILLO, PAULA GARCIA HERRERA, DANIELA MACHADO MAYA",
+      "role": "Tutor principal"
+    },
+    {
+      "type": "Trabajo de grado de pregrado",
       "title": "Entre álbumes de familia : Construcción de memoria en la mujer pereirana",
       "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
       "status": "Concluida",
       "year": "2016",
       "student": "Erika Betancourt Urrea",
+      "role": "Tutor principal"
+    },
+    {
+      "type": "Trabajo de grado de pregrado",
+      "title": "ALFABETIZACIÓN DIGITAL EN ADULTOS MAYORES DEL GRUPO DE LA TERCERA EDAD DEL BARRIO PARQUE INDUSTRIAL DE PEREIRA, DESDE LA PERSPECTIVA DEL APRENDIZAJE SIGNIFICATIVO",
+      "institution": "UNIVERSIDAD TECNOLÓGICA DE PEREIRA",
+      "status": "Concluida",
+      "year": "2015",
+      "student": "Diana Cristina Ospina Valencia",
       "role": "Tutor principal"
     }
   ],
